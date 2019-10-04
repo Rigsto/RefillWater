@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="triple_size">48dp</dimen>
+    <dimen name="double_size">32dp</dimen>
+    <dimen name="default_size">16dp</dimen>
+    <dimen name="half_size">8dp</dimen>
+    <dimen name="quarter_size">4dp</dimen>
+</resources>
