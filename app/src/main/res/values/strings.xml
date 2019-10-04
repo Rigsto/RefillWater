@@ -12,4 +12,21 @@
     <string name="hint_submit">Submit</string>
     <string name="sign_up">Sign Up</string>
     <string name="back_to_login">Back to Login</string>
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="account">Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scan">Scan</string>
+    <string name="ex_points">10,000</string>
+    <string name="ex_money">Rp. 300.000</string>
+    <string name="cd_trophy_logo">trophy logo</string>
+    <string name="cd_money_bag_logo">money bag logo</string>
+    <string name="top_up">Top Up</string>
+    <string name="transfer">Transfer</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="points">Points</string>
+    <string name="img">img</string>
+    <string name="title_activity_x">x</string>
 </resources>

@@ -5,4 +5,11 @@
     <dimen name="default_size">16dp</dimen>
     <dimen name="half_size">8dp</dimen>
     <dimen name="quarter_size">4dp</dimen>
+
+    <dimen name="image_size">50dp</dimen>
+
+    <dimen name="text_huge">22sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="text_medium">17sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
