@@ -8,76 +8,50 @@
     tools:context=".fragment.SignUpFragment">
 
     <EditText
+        style="@style/LoginInput"
         android:id="@+id/edt_signup_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shape_login"
         android:drawableStart="@drawable/ic_person_white_24dp"
-        android:drawablePadding="10dp"
         android:hint="@string/hint_full_name"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textColorHighlight="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:inputType="textPersonName" />
 
     <EditText
+        style="@style/LoginInput"
         android:id="@+id/edt_signup_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shape_login"
         android:drawableStart="@drawable/ic_email_white_24dp"
-        android:drawablePadding="10dp"
         android:hint="@string/hint_email"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textColorHighlight="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:inputType="textEmailAddress" />
 
     <EditText
+        style="@style/LoginInput"
         android:id="@+id/edt_signup_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shape_login"
         android:drawableStart="@drawable/ic_lock_white_24dp"
-        android:drawablePadding="10dp"
         android:hint="@string/hint_password"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textColorHighlight="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:inputType="textPassword" />
 
     <EditText
+        style="@style/LoginInput"
         android:id="@+id/edt_signup_password2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shape_login"
         android:drawableStart="@drawable/ic_lock_white_24dp"
-        android:drawablePadding="10dp"
         android:hint="@string/hint_re_enter_password"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textColorHighlight="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_signup_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
         android:background="@drawable/shape_login_white"
         android:padding="15dp"
         android:shadowColor="@android:color/transparent"

@@ -8,36 +8,24 @@
     tools:context=".fragment.LoginFragment">
 
     <EditText
+        style="@style/LoginInput"
         android:id="@+id/edt_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shape_login"
         android:drawableStart="@drawable/ic_email_white_24dp"
-        android:drawablePadding="10dp"
         android:hint="@string/hint_email"
         android:importantForAutofill="no"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textColorHighlight="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:inputType="textEmailAddress" />
 
     <EditText
+        style="@style/LoginInput"
         android:id="@+id/edt_login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/shape_login"
         android:drawableStart="@drawable/ic_lock_white_24dp"
-        android:drawablePadding="10dp"
         android:hint="@string/hint_password"
         android:importantForAutofill="no"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="@android:color/white"
-        android:textColorHighlight="@android:color/white"
-        android:textColorHint="@android:color/white" />
+        android:inputType="textPassword" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LoginInput" parent="Theme.AppCompat">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@drawable/shape_login</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:textColorHighlight">@android:color/white</item>
+    </style>
+
 </resources>

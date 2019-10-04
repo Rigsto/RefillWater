@@ -8,10 +8,11 @@
     tools:context=".LoginActivity">
 
     <ImageView
+        android:id="@+id/img_login_logo"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_marginTop="@dimen/triple_size"
-        android:layout_marginBottom="@dimen/default_size"
+        android:layout_marginBottom="@dimen/quarter_size"
         android:contentDescription="@string/cd_logo"
         android:src="@drawable/ic_phone_android_white_36dp" />
 
