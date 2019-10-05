@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
-    <include layout="@layout/content_home"/>
+    <include layout="@layout/content_fragment_home"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_scan"

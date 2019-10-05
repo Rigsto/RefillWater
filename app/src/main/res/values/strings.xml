@@ -16,8 +16,6 @@
     <string name="history">History</string>
     <string name="account">Account</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scan">Scan</string>
     <string name="ex_points">10,000</string>
     <string name="ex_money">Rp. 300.000</string>
@@ -29,4 +27,9 @@
     <string name="points">Points</string>
     <string name="img">img</string>
     <string name="title_activity_x">x</string>
+    <string name="no_data">NO DATA</string>
+    <string name="lt_1">1</string>
+    <string name="cd_img_available">img_available</string>
+    <string name="ex_available_place">Plaza</string>
+    <string name="ex_ml_600ml">600ml</string>
 </resources>
