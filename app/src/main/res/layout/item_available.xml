@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/quarter_size"
-    app:cardElevation="@dimen/quarter_size"
-    app:cardMaxElevation="@dimen/quarter_size"
+    app:cardElevation="@dimen/super_small_size"
+    app:cardMaxElevation="@dimen/super_small_size"
     app:cardUseCompatPadding="true"
-    app:contentPadding="@dimen/default_size">
+    app:contentPadding="@dimen/half_size">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,8 +16,8 @@
 
         <RelativeLayout
             android:id="@+id/rl_available_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp">
+            android:layout_width="40dp"
+            android:layout_height="40dp">
 
             <ImageView
                 android:id="@+id/img_available_bg"
@@ -27,12 +27,13 @@
                 android:src="@drawable/bg_available" />
 
             <TextView
+                android:id="@+id/tv_available_floor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/lt_1"
                 android:textColor="@android:color/white"
-                android:textSize="48sp"
+                android:textSize="@dimen/text_huge"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -49,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/ex_available_place"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/text_huge"
+                android:textSize="@dimen/text_medium"
                 android:textStyle="bold" />
 
             <ProgressBar
@@ -57,11 +58,11 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/quarter_size"
+                android:layout_marginTop="@dimen/super_small_size"
                 android:max="100"
                 android:progress="75"
                 android:progressTint="@color/b4_success"
-                android:scaleY="2.5" />
+                android:scaleY="1.75" />
 
         </LinearLayout>
     </RelativeLayout>
