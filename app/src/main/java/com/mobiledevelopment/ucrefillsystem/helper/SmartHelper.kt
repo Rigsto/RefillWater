@@ -1,5 +1,7 @@
 package com.mobiledevelopment.ucrefillsystem.helper
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.View
 import java.math.BigInteger
 import java.security.MessageDigest
@@ -24,4 +26,8 @@ fun View.invisible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+fun Context.sharePref(): SharedPreferences {
+    return this.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
 }

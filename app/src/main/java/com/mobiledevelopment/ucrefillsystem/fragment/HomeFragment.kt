@@ -1,6 +1,5 @@
 package com.mobiledevelopment.ucrefillsystem.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.adapter.AvailableAdapter
-import com.mobiledevelopment.ucrefillsystem.helper.SharedPreferenceKey
-import com.mobiledevelopment.ucrefillsystem.helper.invisible
-import com.mobiledevelopment.ucrefillsystem.helper.readableNumber
-import com.mobiledevelopment.ucrefillsystem.helper.visible
+import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.model.Dispenser
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.AvailablePresenter
@@ -77,7 +73,7 @@ class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
     }
 
     private fun loadMoney() {
-        val sp = context?.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
+        val sp = context?.sharePref()
         val money = sp?.getInt(SharedPreferenceKey.MONEY_KEY, 0)
 
         tv_money.text = "Rp. ${money?.readableNumber()}"

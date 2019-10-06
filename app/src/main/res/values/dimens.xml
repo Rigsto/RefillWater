@@ -11,6 +11,8 @@
     <dimen name="text_huge">22sp</dimen>
     <dimen name="text_large">20sp</dimen>
     <dimen name="text_medium">17sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="super_small_size">2dp</dimen>
 </resources>

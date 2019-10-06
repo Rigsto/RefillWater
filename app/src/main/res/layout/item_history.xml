@@ -1,62 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/quarter_size"
-    app:cardElevation="@dimen/quarter_size"
-    app:cardMaxElevation="@dimen/quarter_size"
+    app:cardElevation="@dimen/super_small_size"
+    app:cardMaxElevation="@dimen/super_small_size"
     app:cardUseCompatPadding="true"
-    app:contentPadding="@dimen/default_size">
+    app:contentPadding="@dimen/half_size">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RelativeLayout
             android:id="@+id/rl_history_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp">
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/img_history_logo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/cd_img_available"
-                android:src="@drawable/bg_history" />
+                android:src="@drawable/bg_history_topup" />
 
             <TextView
+                android:id="@+id/tv_history_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/lt_1"
                 android:textColor="@android:color/white"
-                android:textSize="48sp"
+                android:textSize="@dimen/text_huge"
                 android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/half_size"
+            android:layout_marginEnd="@dimen/half_size"
             android:layout_toEndOf="@id/rl_history_image"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_history_balance"
+            app:layout_constraintStart_toEndOf="@+id/rl_history_image"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tv_history_name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ex_available_place"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/text_huge"
+                android:textSize="@dimen/text_medium"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_history_ml"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_history_subname"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ex_ml_600ml"
-                android:textSize="@dimen/text_large"/>
+                android:textSize="@dimen/text_small" />
         </LinearLayout>
-    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_history_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ex_money"
+            android:textColor="@color/b4_success"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

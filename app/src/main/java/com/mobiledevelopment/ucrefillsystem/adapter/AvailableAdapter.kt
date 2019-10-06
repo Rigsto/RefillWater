@@ -74,7 +74,7 @@ class AvailableAdapter(private val context: Context) :
 
     override fun getItemCount(): Int = dispensers.size
 
-    inner class HeaderViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val header = view.tv_header
 
         fun bindContent(text: String) {
@@ -82,7 +82,7 @@ class AvailableAdapter(private val context: Context) :
         }
     }
 
-    inner class AvailableViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class AvailableViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val img_stat = view.img_available_bg
         private val floor = view.tv_available_floor
         private val place = view.tv_available_name

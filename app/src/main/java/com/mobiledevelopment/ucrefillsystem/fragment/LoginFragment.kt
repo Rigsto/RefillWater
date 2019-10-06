@@ -1,6 +1,5 @@
 package com.mobiledevelopment.ucrefillsystem.fragment
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -76,7 +75,7 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
     }
 
     private fun tryAutoLogin() {
-        val sp = context?.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
+        val sp = context?.sharePref()
         if (sp?.getString(SharedPreferenceKey.API_KEY, "") != "") {
             val email = sp?.getString(SharedPreferenceKey.EMAIL_KEY, "")
             val password = sp?.getString(SharedPreferenceKey.PASSWORD_KEY, "")
@@ -107,7 +106,7 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
     }
 
     override fun loginSuccess(data: LoginResponse) {
-        val sp = context?.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
+        val sp = context?.sharePref()
 
         if (auto == 0) {
             sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY, data.name)
@@ -123,7 +122,7 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
     }
 
     override fun loginFailed() {
-        val sp = context?.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
+        val sp = context?.sharePref()
         sp?.edit()?.clear()?.apply()
 
         auto = 0
