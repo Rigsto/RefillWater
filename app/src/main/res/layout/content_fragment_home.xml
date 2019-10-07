@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/default_size"
-    tools:context=".fragment.HomeFragment"
+    tools:context=".fragment.home.HomeFragment"
     tools:ignore="UseCompoundDrawables"
     tools:showIn="@layout/fragment_home">
 

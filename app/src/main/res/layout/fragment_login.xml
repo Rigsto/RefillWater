@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp"
-        tools:context=".fragment.LoginFragment">
+        tools:context=".fragment.login.LoginFragment">
 
         <EditText
             android:id="@+id/edt_login_email"

@@ -5,9 +5,9 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.mobiledevelopment.ucrefillsystem.fragment.AccountFragment
-import com.mobiledevelopment.ucrefillsystem.fragment.HistoryFragment
-import com.mobiledevelopment.ucrefillsystem.fragment.HomeFragment
+import com.mobiledevelopment.ucrefillsystem.fragment.home.AccountFragment
+import com.mobiledevelopment.ucrefillsystem.fragment.home.HistoryFragment
+import com.mobiledevelopment.ucrefillsystem.fragment.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {

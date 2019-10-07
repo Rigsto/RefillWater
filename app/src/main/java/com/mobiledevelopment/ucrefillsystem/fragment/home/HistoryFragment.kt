@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.fragment
+package com.mobiledevelopment.ucrefillsystem.fragment.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

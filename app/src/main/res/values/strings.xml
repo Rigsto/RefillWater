@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UCRefillSystem</string>
+    <string name="app_name">UC Refill System</string>
     <string name="cd_logo">Logo</string>
 
     <string name="hint_email">Email</string>

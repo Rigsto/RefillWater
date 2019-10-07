@@ -1,5 +1,6 @@
-package com.mobiledevelopment.ucrefillsystem.fragment
+package com.mobiledevelopment.ucrefillsystem.fragment.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.R
+import com.mobiledevelopment.ucrefillsystem.RefillActivity
 import com.mobiledevelopment.ucrefillsystem.adapter.AvailableAdapter
 import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.model.Dispenser
@@ -16,6 +18,7 @@ import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.AvailablePresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.AvailableView
 import kotlinx.android.synthetic.main.content_fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
     private var dispenserList: List<Any> = mutableListOf()
@@ -35,6 +38,7 @@ class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
         ll_transfer.setOnClickListener(this)
         ll_withdraw.setOnClickListener(this)
         ll_points.setOnClickListener(this)
+        fab_scan.setOnClickListener(this)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -69,6 +73,9 @@ class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
             R.id.ll_transfer -> Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show()
             R.id.ll_withdraw -> Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show()
             R.id.ll_points -> Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show()
+            R.id.fab_scan -> {
+                startActivity(Intent(context, RefillActivity::class.java))
+            }
         }
     }
 

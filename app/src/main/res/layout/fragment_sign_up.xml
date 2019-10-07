@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".fragment.SignUpFragment">
+    tools:context=".fragment.login.SignUpFragment">
 
     <EditText
         style="@style/LoginInput"

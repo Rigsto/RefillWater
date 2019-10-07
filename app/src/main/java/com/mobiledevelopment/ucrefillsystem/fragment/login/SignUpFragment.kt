@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.fragment
+package com.mobiledevelopment.ucrefillsystem.fragment.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -36,7 +36,10 @@ class SignUpFragment : Fragment(), View.OnClickListener {
             }
             R.id.btn_signup_backtologin -> {
                 fragmentManager!!.beginTransaction()
-                    .replace(R.id.fl_login_container, LoginFragment()).commit()
+                    .replace(
+                        R.id.fl_login_container,
+                        LoginFragment()
+                    ).commit()
             }
         }
     }

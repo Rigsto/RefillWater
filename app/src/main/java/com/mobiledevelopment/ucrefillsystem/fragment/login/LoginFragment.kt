@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.fragment
+package com.mobiledevelopment.ucrefillsystem.fragment.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -45,7 +45,10 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
         when (v.id) {
             R.id.btn_login_signup -> {
                 fragmentManager!!.beginTransaction()
-                    .replace(R.id.fl_login_container, SignUpFragment()).commit()
+                    .replace(
+                        R.id.fl_login_container,
+                        SignUpFragment()
+                    ).commit()
             }
             R.id.btn_login_login -> {
                 if (checkData()) {
