@@ -33,4 +33,6 @@
     <string name="ex_available_place">Plaza</string>
     <string name="ex_ml_600ml">600ml</string>
     <string name="ex_header">Available</string>
+    <string name="back">Back</string>
+    <string name="scan_here">Scan Here</string>
 </resources>
