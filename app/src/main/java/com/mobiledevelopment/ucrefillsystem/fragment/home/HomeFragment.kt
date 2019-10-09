@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.R
-import com.mobiledevelopment.ucrefillsystem.ScanActivity
+import com.mobiledevelopment.ucrefillsystem.ScanRefillActivity
 import com.mobiledevelopment.ucrefillsystem.adapter.AvailableAdapter
 import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.model.Dispenser
@@ -74,7 +74,7 @@ class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
             R.id.ll_withdraw -> Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show()
             R.id.ll_points -> Toast.makeText(context, "Coming Soon", Toast.LENGTH_SHORT).show()
             R.id.fab_scan -> {
-                startActivity(Intent(context, ScanActivity::class.java))
+                startActivity(Intent(context, ScanRefillActivity::class.java))
             }
         }
     }

@@ -1,28 +1,50 @@
 package com.mobiledevelopment.ucrefillsystem
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
-import kotlinx.android.synthetic.main.activity_scan.*
+import kotlinx.android.synthetic.main.activity_scan_refill.*
 
-class ScanActivity : AppCompatActivity() {
+class ScanRefillActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scan)
+        setContentView(R.layout.activity_scan_refill)
 
         codeScanner = CodeScanner(this, sqr_refill)
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
                 val data = it.text
                 if (checkScan(data)) {
-                    data.toInt()
+                    startActivity(
+                        Intent(this, PayRefillActivity::class.java).putExtra(
+                            "code",
+                            data.toInt()
+                        )
+                    )
                 } else {
+//                    alertOk("Scan QR", "Please try again", "Try Again") {
+//                        Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
+//                    }
 
+                    val builder = AlertDialog.Builder(this)
+
+                    builder.setTitle("Scan QR")
+                    builder.setMessage("Please try again")
+                    builder.setPositiveButton("Try Again") { dialog, which ->
+                        codeScanner.startPreview()
+                        dialog.dismiss()
+                    }
+                    builder.setOnDismissListener {
+                        codeScanner.startPreview()
+                    }
+                    builder.show()
                 }
             }
         }
