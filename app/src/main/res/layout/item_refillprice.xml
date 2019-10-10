@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rb_refillprice"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/super_small_size"
+    android:background="@drawable/radio_price"
+    android:button="@null"
+    android:paddingStart="@dimen/default_size"
+    android:paddingTop="@dimen/half_size"
+    android:paddingEnd="@dimen/default_size"
+    android:paddingBottom="@dimen/half_size"
+    android:text="@string/ex_ml_600ml"
+    android:textAlignment="center"
+    android:textColor="@drawable/radio_price_text"
+    android:textSize="@dimen/text_medium"
+    android:textStyle="bold" />

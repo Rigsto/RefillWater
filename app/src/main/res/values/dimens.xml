@@ -8,6 +8,7 @@
 
     <dimen name="image_size">50dp</dimen>
 
+    <dimen name="text_giant">26sp</dimen>
     <dimen name="text_huge">22sp</dimen>
     <dimen name="text_large">20sp</dimen>
     <dimen name="text_medium">17sp</dimen>

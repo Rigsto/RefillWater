@@ -29,10 +29,6 @@ class ScanRefillActivity : AppCompatActivity() {
                         )
                     )
                 } else {
-//                    alertOk("Scan QR", "Please try again", "Try Again") {
-//                        Toast.makeText(this, "berhasil", Toast.LENGTH_SHORT).show()
-//                    }
-
                     val builder = AlertDialog.Builder(this)
 
                     builder.setTitle("Scan QR")

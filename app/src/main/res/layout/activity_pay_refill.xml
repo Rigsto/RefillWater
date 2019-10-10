@@ -1,8 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PayRefillActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".PayRefillActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/default_size">
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/cd_img_available"
+                    android:src="@drawable/bg_available" />
+
+                <TextView
+                    android:id="@+id/tv_payment_floor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/lt_1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_huge"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_payment_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_size"
+                android:text="@string/ex_available_place"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_size"
+            android:paddingTop="@dimen/default_size"
+            android:paddingEnd="@dimen/default_size"
+            android:paddingBottom="@dimen/half_size"
+            android:text="@string/select_size" />
+
+        <RadioGroup
+            android:id="@+id/rg_refillprice_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/default_size">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_payment_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/default_size"
+            android:paddingTop="@dimen/default_size"
+            android:paddingEnd="@dimen/default_size"
+            android:paddingBottom="@dimen/half_size"
+            android:text="@string/total_amount" />
+
+        <RelativeLayout
+            android:id="@+id/rl_refillprice_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/default_size">
+
+            <TextView
+                android:id="@+id/tv_payment_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_money2"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_giant" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_refillprice_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/btn_payment_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/half_size"
+            android:layout_marginTop="@dimen/half_size"
+            android:layout_marginEnd="@dimen/quarter_size"
+            android:layout_marginBottom="@dimen/half_size"
+            android:layout_weight="0.5"
+            android:background="@drawable/btn_danger_outline"
+            android:text="@string/cancel"
+            android:textColor="@color/b4_danger" />
+
+        <Button
+            android:id="@+id/btn_payment_pay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/quarter_size"
+            android:layout_marginTop="@dimen/half_size"
+            android:layout_marginEnd="@dimen/half_size"
+            android:layout_marginBottom="@dimen/half_size"
+            android:layout_weight="0.5"
+            android:background="@drawable/btn_success"
+            android:text="@string/pay"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_refillprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

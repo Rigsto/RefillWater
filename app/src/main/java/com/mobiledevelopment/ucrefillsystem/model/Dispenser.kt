@@ -3,6 +3,9 @@ package com.mobiledevelopment.ucrefillsystem.model
 import com.google.gson.annotations.SerializedName
 
 data class Dispenser (
+    @SerializedName("code")
+    val code: Int?,
+
     @SerializedName("place")
     val place: String?,
 

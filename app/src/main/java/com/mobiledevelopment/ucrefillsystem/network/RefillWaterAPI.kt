@@ -16,4 +16,12 @@ object RefillWaterAPI {
     fun login(email: String, password: String): String {
         return "$address/login.php?email=$email&pass=$password"
     }
+
+    fun getDispenserInfo(code: Int): String {
+        return "$address/dispenser_info.php?id=$code"
+    }
+
+    fun getRefillPrices(): String {
+        return "$address/price.php"
+    }
 }
