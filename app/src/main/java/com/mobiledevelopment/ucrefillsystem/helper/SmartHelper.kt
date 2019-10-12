@@ -31,3 +31,7 @@ fun View.gone() {
 fun Context.sharePref(): SharedPreferences {
     return this.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
 }
+
+fun Context.getApi(): String {
+    return sharePref().getString(SharedPreferenceKey.API_KEY, "")!!
+}

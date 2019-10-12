@@ -16,15 +16,19 @@ import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.model.Dispenser
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.AvailablePresenter
+import com.mobiledevelopment.ucrefillsystem.presenter.WalletPresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.AvailableView
+import com.mobiledevelopment.ucrefillsystem.viewinterface.WalletView
 import kotlinx.android.synthetic.main.content_fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
+class HomeFragment : Fragment(), View.OnClickListener, AvailableView, WalletView {
     private var dispenserList: List<Any> = mutableListOf()
+    private var progressSwipe: Boolean = false
 
     private lateinit var adapter: AvailableAdapter
     private lateinit var presenter: AvailablePresenter
+    private lateinit var moneyPres: WalletPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,19 +56,36 @@ class HomeFragment : Fragment(), View.OnClickListener, AvailableView {
 
         presenter = AvailablePresenter(this, ApiRepository(), Gson())
         presenter.getAvailableDispenser()
+        moneyPres = WalletPresenter(this, ApiRepository(), Gson())
+
+        sr_home.setOnRefreshListener {
+            progressSwipe = true
+            presenter.getAvailableDispenser()
+            moneyPres.reloadWallet(
+                context?.getApi()!!
+            )
+        }
     }
 
     override fun showLoading() {
-        pb_available.visible()
+        if (!progressSwipe)
+            pb_available.visible()
     }
 
     override fun hideLoading() {
-        pb_available.invisible()
+        if (!progressSwipe)
+            pb_available.invisible()
     }
 
     override fun showAvailableList(data: List<Dispenser>) {
         dispenserList = convertData(data)
         adapter.addList(dispenserList)
+    }
+
+    override fun showWallet(money: Int) {
+        sr_home.isRefreshing = false
+        tv_money.text = "Rp. ${money?.readableNumber()}"
+        context?.sharePref()?.edit()?.putInt(SharedPreferenceKey.MONEY_KEY, money)?.apply()
     }
 
     override fun onClick(v: View) {

@@ -2,7 +2,7 @@ package com.mobiledevelopment.ucrefillsystem.presenter
 
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
-import com.mobiledevelopment.ucrefillsystem.model.CodeResponse
+import com.mobiledevelopment.ucrefillsystem.model.response.CodeResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.PaymentView

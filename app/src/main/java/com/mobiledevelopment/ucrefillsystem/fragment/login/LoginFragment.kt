@@ -11,7 +11,7 @@ import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.HomeActivity
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.helper.*
-import com.mobiledevelopment.ucrefillsystem.model.LoginResponse
+import com.mobiledevelopment.ucrefillsystem.model.response.LoginResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.LoginPresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView

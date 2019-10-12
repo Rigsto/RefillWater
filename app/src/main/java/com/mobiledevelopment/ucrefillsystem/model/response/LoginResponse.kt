@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.model
+package com.mobiledevelopment.ucrefillsystem.model.response
 
 import com.google.gson.annotations.SerializedName
 

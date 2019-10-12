@@ -1,6 +1,6 @@
 package com.mobiledevelopment.ucrefillsystem.viewinterface
 
-import com.mobiledevelopment.ucrefillsystem.model.LoginResponse
+import com.mobiledevelopment.ucrefillsystem.model.response.LoginResponse
 
 interface LoginView {
     fun showLoading()

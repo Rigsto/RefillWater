@@ -3,7 +3,7 @@ package com.mobiledevelopment.ucrefillsystem.presenter
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
 import com.mobiledevelopment.ucrefillsystem.model.Dispenser
-import com.mobiledevelopment.ucrefillsystem.model.RefillPriceResponse
+import com.mobiledevelopment.ucrefillsystem.model.response.RefillPriceResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.RefillPriceView

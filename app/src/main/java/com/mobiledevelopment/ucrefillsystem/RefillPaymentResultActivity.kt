@@ -12,13 +12,16 @@ import com.mobiledevelopment.ucrefillsystem.model.Dispenser
 import com.mobiledevelopment.ucrefillsystem.model.RefillPrice
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.RefillPaymentPresenter
+import com.mobiledevelopment.ucrefillsystem.presenter.WalletPresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.PaymentView
+import com.mobiledevelopment.ucrefillsystem.viewinterface.WalletView
 import kotlinx.android.synthetic.main.activity_refill_payment_result.*
 
-class RefillPaymentResultActivity : AppCompatActivity(), PaymentView {
+class RefillPaymentResultActivity : AppCompatActivity(), PaymentView, WalletView {
     private lateinit var dispenser: Dispenser
     private lateinit var refillPrice: RefillPrice
     private lateinit var presenter: RefillPaymentPresenter
+    private lateinit var walletPres: WalletPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +38,12 @@ class RefillPaymentResultActivity : AppCompatActivity(), PaymentView {
 
         presenter = RefillPaymentPresenter(this, ApiRepository(), Gson())
         presenter.refillPayment(
-            sharePref()?.getString(SharedPreferenceKey.API_KEY, "")!!,
+            getApi(),
             dispenser.code,
             refillPrice.id
         )
+
+        walletPres = WalletPresenter(this, ApiRepository(), Gson())
     }
 
     override fun onBackPressed() {
@@ -78,5 +83,11 @@ class RefillPaymentResultActivity : AppCompatActivity(), PaymentView {
             tv_payment_status_place.text = dispenser.place
             tv_payment_status_ml.text = "${refillPrice.size} ml"
         }
+
+        walletPres.reloadWallet(getApi())
+    }
+
+    override fun showWallet(money: Int) {
+        sharePref().edit().putInt(SharedPreferenceKey.MONEY_KEY, money).apply()
     }
 }

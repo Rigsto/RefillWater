@@ -28,4 +28,8 @@ object RefillWaterAPI {
     fun payRefill(api: String, idDispenser: Int, priceCode: Int): String {
         return "$address/refill_payment.php?api=$api&dis=$idDispenser&code=$priceCode"
     }
+
+    fun loadWallet(api: String): String {
+        return "$address/wallet_money.php?api=$api"
+    }
 }

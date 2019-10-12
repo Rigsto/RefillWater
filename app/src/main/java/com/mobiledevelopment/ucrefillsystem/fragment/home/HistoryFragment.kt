@@ -46,10 +46,7 @@ class HistoryFragment : Fragment(), HistoryView {
         sr_history.setOnRefreshListener {
             progressSwipe = true
             presenter.getHistoryData(
-                context?.sharePref()?.getString(
-                    SharedPreferenceKey.API_KEY,
-                    ""
-                )!!
+                context?.getApi()!!
             )
         }
     }
