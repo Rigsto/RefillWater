@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
@@ -19,17 +20,18 @@ import kotlinx.android.synthetic.main.activity_pay_refill.*
 class PayRefillActivity : AppCompatActivity(), RefillPriceView, View.OnClickListener {
     private var code: Int = 0
     private var currentAmount: Int = -1
-    private var refill_id: Int = 1
     private var checkRadio = false
 
     private lateinit var adapter: RefillPriceAdapter
     private lateinit var presenter: RefillPricePresenter
+    private lateinit var dispenser: Dispenser
+    private lateinit var refillPrice: RefillPrice
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pay_refill)
 
-        title = resources.getString(R.string.payment_details)
+        title = resources.getString(R.string.payment_confirmation)
 
         btn_payment_pay.setOnClickListener(this)
         btn_payment_cancel.setOnClickListener(this)
@@ -39,8 +41,8 @@ class PayRefillActivity : AppCompatActivity(), RefillPriceView, View.OnClickList
         adapter = RefillPriceAdapter(this) {
             tv_payment_total.text = "Rp. ${it.price.readableNumber()}"
             currentAmount = it.price
-            refill_id = it.id
             checkRadio = true
+            refillPrice = it
         }
         rv_payment_size.adapter = adapter
 
@@ -59,9 +61,10 @@ class PayRefillActivity : AppCompatActivity(), RefillPriceView, View.OnClickList
                         Intent(
                             this,
                             RefillPaymentResultActivity::class.java
-                        ).putExtra("code", code).putExtra("refill_id", refill_id)
+                        ).putExtra("dispenser", dispenser).putExtra("refill", refillPrice)
                     )
-                } else {
+                    finish()
+                } else if (!enoughMoney() && checkRadio) {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle("Cancel Payment")
                     builder.setMessage("insufficient balance. Please top up your wallet!")
@@ -75,6 +78,9 @@ class PayRefillActivity : AppCompatActivity(), RefillPriceView, View.OnClickList
                         finish()
                     }
                     builder.show()
+                } else {
+                    Toast.makeText(this, "Please choose your bottle size", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
             R.id.btn_payment_cancel -> {
@@ -118,6 +124,7 @@ class PayRefillActivity : AppCompatActivity(), RefillPriceView, View.OnClickList
     override fun showDispenser(dispenser: Dispenser) {
         tv_payment_floor.text = dispenser.floor
         tv_payment_place.text = dispenser.place
+        this.dispenser = dispenser
     }
 
     override fun showPrices(prices: List<RefillPrice>) {

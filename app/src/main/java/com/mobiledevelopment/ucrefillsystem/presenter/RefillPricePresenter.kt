@@ -26,7 +26,7 @@ class RefillPricePresenter(
                 Dispenser::class.java
             )
 
-            if (dispenser.code == 1) {
+            if (dispenser.code != 0) {
                 view.hideLoading()
                 view.showDispenser(dispenser)
             } else if (dispenser.code == 0) {

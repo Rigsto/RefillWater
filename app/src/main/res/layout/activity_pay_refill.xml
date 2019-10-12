@@ -96,7 +96,8 @@
                 android:text="@string/ex_money2"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/text_giant" />
+                android:textSize="@dimen/text_giant"
+                android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
 

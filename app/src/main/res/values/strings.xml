@@ -36,9 +36,12 @@
     <string name="back">Back</string>
     <string name="scan_here">Scan Here</string>
     <string name="payment_details">Payment Details</string>
+    <string name="payment_confirmation">Payment Confirmation</string>
     <string name="total_amount">TOTAL AMOUNT</string>
     <string name="select_size">SELECT SIZE</string>
     <string name="cancel">Cancel</string>
     <string name="pay">Pay</string>
     <string name="ex_money2">Rp. 0</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="you_have_paid">You have paid</string>
 </resources>
