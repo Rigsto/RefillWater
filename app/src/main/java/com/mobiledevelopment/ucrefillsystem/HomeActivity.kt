@@ -10,14 +10,17 @@ import com.mobiledevelopment.ucrefillsystem.fragment.home.HistoryFragment
 import com.mobiledevelopment.ucrefillsystem.fragment.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class HomeActivity(private val gotoFragment: Fragment? = null) : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         bottom_navigation.setOnNavigationItemSelectedListener(this)
 
-        loadFragment(HomeFragment())
+        if (gotoFragment == null)
+            loadFragment(HomeFragment())
+        else
+            loadFragment(gotoFragment)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

@@ -1,8 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.home.AccountFragment">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_account_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/default_size">
+
+            <TextView
+                android:id="@+id/tv_account_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/john_doe"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/tv_edit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_account_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_email"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_account_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_account_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_account_name" />
+
+            <TextView
+                android:id="@+id/tv_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/edit"
+                android:textColor="@color/b4_success"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:id="@+id/rl_qr_code"
+            android:padding="@dimen/default_size"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView0"
+                android:layout_width="@dimen/double_size"
+                android:layout_height="@dimen/double_size"
+                android:src="@drawable/qrcode_scan_black"
+                android:contentDescription="@string/img"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/default_size"
+                android:layout_toEndOf="@id/imageView0"
+                android:text="@string/my_qr_code"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_medium" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:id="@+id/rl_change_pass"
+            android:padding="@dimen/default_size"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="@dimen/double_size"
+                android:layout_height="@dimen/double_size"
+                android:src="@drawable/ic_changepassword"
+                android:contentDescription="@string/img"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/default_size"
+                android:layout_toEndOf="@id/imageView1"
+                android:text="@string/change_password"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_medium" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/super_small_size"
+            android:id="@+id/rl_change_lang"
+            android:padding="@dimen/default_size"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/double_size"
+                android:layout_height="@dimen/double_size"
+                android:src="@drawable/ic_changelanguange"
+                android:contentDescription="@string/img"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/default_size"
+                android:layout_toEndOf="@id/imageView2"
+                android:text="@string/change_language"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_medium" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/half_size"
+        android:background="@drawable/btn_danger_outline"
+        android:text="@string/log_out"
+        android:textColor="@color/b4_danger" />
+</RelativeLayout>

@@ -8,4 +8,5 @@ object SharedPreferenceKey {
     var EMAIL_KEY = "EMAIL"
     var PASSWORD_KEY = "PASS"
     var MONEY_KEY = "MONEY"
+    var LANG_KEY = "LANG"
 }

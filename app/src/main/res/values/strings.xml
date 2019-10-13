@@ -44,4 +44,16 @@
     <string name="ex_money2">Rp. 0</string>
     <string name="payment_successful">Payment Successful</string>
     <string name="you_have_paid">You have paid</string>
+    <string name="john_doe">John Doe</string>
+    <string name="ex_email">example@student.ciputra.ac.id</string>
+    <string name="edit">EDIT</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_language">Change Language</string>
+    <string name="my_qr_code">My QR Code</string>
+    <string name="log_out">Log Out</string>
+
+    <string name="english">English</string>
+    <string name="indonesia">Indonesian</string>
+    <string name="language">Language</string>
+    <string name="change">Change</string>
 </resources>

@@ -49,6 +49,8 @@ class HistoryFragment : Fragment(), HistoryView {
                 context?.getApi()!!
             )
         }
+
+        activity?.title = "History"
     }
 
     override fun showLoading() {

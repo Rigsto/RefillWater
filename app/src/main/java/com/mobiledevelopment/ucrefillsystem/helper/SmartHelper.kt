@@ -35,3 +35,13 @@ fun Context.sharePref(): SharedPreferences {
 fun Context.getApi(): String {
     return sharePref().getString(SharedPreferenceKey.API_KEY, "")!!
 }
+
+fun SharedPreferences.reset(){
+    this.edit().putString(SharedPreferenceKey.NAME_KEY, "")
+        .putString(SharedPreferenceKey.EMAIL_KEY, "")
+        .putString(SharedPreferenceKey.PASSWORD_KEY, "")
+        .putString(SharedPreferenceKey.API_KEY, "")
+        .putInt(SharedPreferenceKey.MONEY_KEY, 0)
+        .putInt(SharedPreferenceKey.LANG_KEY, 0)
+        .apply()
+}
