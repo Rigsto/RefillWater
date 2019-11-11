@@ -20,4 +20,5 @@ class LoginFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
     }
+
 }
