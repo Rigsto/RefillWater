@@ -16,9 +16,5 @@ class LoginActivity : AppCompatActivity() {
             .commit()
     }
 
-    interface LoginView {
-        fun showLoading()
-        fun hideLoading()
-        fun showNameList(data : List<User>)
-    }
+
 }

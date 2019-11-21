@@ -8,4 +8,12 @@ object RefillWaterAPI {
     fun getUser(name : String?):String{
         return address +""
     }
+
+    fun CreateUser (name : String?):String{
+        return address +""
+    }
+
+    fun SeeHistory (name: String?): String{
+        return address+""
+    }
 }
