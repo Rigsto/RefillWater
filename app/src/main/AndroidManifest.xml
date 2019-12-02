@@ -12,10 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".waterSlider"></activity>
+        <activity android:name=".history" />
+        <activity android:name=".summary" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".gallonVolume" />
+        <activity android:name=".change_password" />
+        <activity android:name=".edit_profile" />
+        <activity android:name=".account" />
+        <activity android:name=".activity_home" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
