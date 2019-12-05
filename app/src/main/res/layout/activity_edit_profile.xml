@@ -1,115 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context=".edit_profile">
+    android:orientation="vertical"
+    tools:context=".EditProfileActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar6"
+    <Toolbar
+        android:id="@+id/tb_edit_profile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="?attr/actionBarSize"
+        android:navigationIcon="@drawable/ic_left_arrow_black"
+        android:paddingEnd="60dp">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:text="@string/edit_profile"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_large"
+            android:textAlignment="center" />
+    </Toolbar>
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                app:srcCompat="@drawable/left_arrow" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Change Password"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                android:visibility="invisible" />
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar6">
+        android:layout_height="@dimen/double_image_size"
+        android:layout_marginTop="@dimen/default_size">
 
         <ImageView
-            android:id="@+id/imageView10"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/account_photo" />
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_donut_account"
+            android:contentDescription="@string/logo" />
 
-        <TextView
-            android:id="@+id/txt_add"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:gravity="center_horizontal"
-            android:text="Add"
-            android:textColor="@color/colorPrimaryLight"
-            android:textSize="18sp" />
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_account"
+            android:contentDescription="@string/logo"
+            android:padding="@dimen/onehalf_size"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_eprofile_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_medium"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/half_size"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/double_size"
+        android:paddingEnd="@dimen/double_size"
+        android:paddingTop="@dimen/default_size"
+        android:paddingBottom="@dimen/default_size">
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/edt_eprofile_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/colorPrimaryLight"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Johnathan Doe" />
+            android:hint="@string/name"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:text="@string/john_doe"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/double_size"
+        android:paddingEnd="@dimen/double_size"
+        android:paddingTop="@dimen/default_size"
+        android:paddingBottom="@dimen/default_size">
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/edt_eprofile_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/colorPrimaryLight"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="John@student.ciputra.ac.id" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="right"
-            android:text="Change Password?"
-            android:textColor="@color/colorPrimaryLight"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input_text_rounded_corner"
+            android:hint="@string/email_student"
             android:backgroundTint="@color/colorPrimaryLight"
-            android:text="Save"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="@string/johndoe_student_ciputra_ac_id"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_eprofile_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_password"
+        android:textAlignment="textEnd"
+        android:paddingEnd="@dimen/double_size"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_medium" />
+
+    <Button
+        android:id="@+id/btn_eprofile_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/double_size"
+        android:layout_marginEnd="@dimen/double_size"
+        android:layout_marginTop="@dimen/double_size"
+        android:background="@drawable/input_text_rounded_corner"
+        android:backgroundTint="@color/colorPrimaryLight"
+        android:text="@string/save"
+        android:textColor="@android:color/white" />
+</LinearLayout>

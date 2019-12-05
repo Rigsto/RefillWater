@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_size">
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="25dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/half_size"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/ic_water_glass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_summary_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_50_ml"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginStart="@dimen/half_size"
+        app:layout_constraintStart_toEndOf="@+id/imageView30"
+        app:layout_constraintTop_toTopOf="@+id/imageView30" />
+
+    <TextView
+        android:id="@+id/tv_summary_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lantai_2"
+        android:textSize="@dimen/text_small"
+        app:layout_constraintStart_toStartOf="@+id/tv_summary_size"
+        app:layout_constraintTop_toBottomOf="@+id/tv_summary_size" />
+
+    <TextView
+        android:id="@+id/tv_summary_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_20"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_mediumsmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_summary_size" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/small_water"
+        android:layout_marginEnd="@dimen/quarter_size"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_summary_point"
+        app:layout_constraintEnd_toStartOf="@+id/tv_summary_point"
+        app:layout_constraintTop_toTopOf="@+id/tv_summary_point" />
+</androidx.constraintlayout.widget.ConstraintLayout>

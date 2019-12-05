@@ -12,15 +12,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".waterSlider"></activity>
-        <activity android:name=".history" />
-        <activity android:name=".summary" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".gallonVolume" />
-        <activity android:name=".change_password" />
-        <activity android:name=".edit_profile" />
-        <activity android:name=".account" />
-        <activity android:name=".activity_home" >
+        <activity android:name=".ChangePasswordActivity"
+            android:parentActivityName=".EditProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".EditProfileActivity"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WaterSliderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GallonVolumeActivity"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SummaryActivity"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

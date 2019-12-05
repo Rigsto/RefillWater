@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    tools:context=".fragment.home.AccountFragment">
+
+    <Toolbar
+        android:id="@+id/tb_account"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingEnd="@dimen/default_size"
+        android:background="@drawable/bg_toright">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_large"
+            android:textAlignment="center" />
+    </Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/default_size">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="@dimen/default_size"
+                app:cardCornerRadius="@dimen/double_size"
+                app:cardMaxElevation="@dimen/default_size"
+                app:contentPadding="@dimen/default_size" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:contentDescription="@string/logo"
+                        android:src="@drawable/ic_donut_account"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:contentDescription="@string/logo"
+                        android:src="@drawable/ic_account"
+                        android:padding="@dimen/default_size"
+                        app:layout_constraintBottom_toBottomOf="@id/imageView2"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                        app:layout_constraintStart_toStartOf="@id/imageView2"
+                        app:layout_constraintTop_toTopOf="@id/imageView2" />
+
+                    <TextView
+                        android:id="@+id/tv_account_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_size"
+                        android:layout_marginTop="@dimen/default_size"
+                        android:layout_marginEnd="@dimen/default_size"
+                        android:text="@string/john_doe"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_medium"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_account_email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_size"
+                        android:layout_marginEnd="@dimen/default_size"
+                        android:text="@string/johndoe_student_ciputra_ac_id"
+                        android:textSize="@dimen/text_mediumsmall"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_account_name" />
+
+                    <TextView
+                        android:id="@+id/tv_account_editprofile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/edit_profile"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_mediumsmall"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/default_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/ll_account_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/double_size"
+                android:padding="@dimen/default_size"
+                android:background="@drawable/bg_white">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/notification_button"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/notifications"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_mediumsmall"
+                    android:layout_marginStart="@dimen/half_size" />
+
+                <Switch
+                    android:id="@+id/sw_notifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/half_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_account_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/half_size"
+                android:padding="@dimen/default_size"
+                android:background="@drawable/bg_white">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_danger"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/report_issues"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_mediumsmall"
+                    android:layout_marginStart="@dimen/half_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_account_howtouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/half_size"
+                android:padding="@dimen/default_size"
+                android:background="@drawable/bg_white">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_faq"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/how_to_use"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_mediumsmall"
+                    android:layout_marginStart="@dimen/half_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_account_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/half_size"
+                android:padding="@dimen/default_size"
+                android:background="@drawable/bg_white">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_information"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/logo" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/about"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_mediumsmall"
+                    android:layout_marginStart="@dimen/half_size"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

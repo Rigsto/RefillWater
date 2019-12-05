@@ -3,7 +3,6 @@ package com.mobiledevelopment.ucrefillsystem
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mobiledevelopment.ucrefillsystem.fragment.login.LoginFragment
-import com.mobiledevelopment.ucrefillsystem.model.User
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +14,4 @@ class LoginActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.fl_container_login, LoginFragment())
             .commit()
     }
-
-
 }
