@@ -175,6 +175,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <com.kingfisher.easyviewindicator.RecyclerViewIndicator
+                    android:id="@+id/rvi_home_voucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    app:avi_animation_enable="true"
+                    app:avi_drawable="@drawable/circle_blue"
+                    app:avi_drawable_unselected="@drawable/circle_blue_light"
+                    app:avi_height="10dp"
+                    app:avi_margin="10dp"
+                    app:avi_width="10dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -247,6 +258,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
                         <TextView
+                            android:id="@+id/tv_home_percentage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/_30"
@@ -258,6 +270,7 @@
                             app:layout_constraintTop_toTopOf="@+id/textView4" />
 
                         <TextView
+                            android:id="@+id/tv_hydration_check"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/hydration_check"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UC Refill</string>
+    <string name="app_name">Refill Water</string>
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -74,4 +74,13 @@
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <string name="save_new_password">Save New Password</string>
+    <string name="frame">frame</string>
+    <string name="onboarding">onboarding</string>
+    <string name="onboarding1">Plastic Free Movement</string>
+    <string name="lorem_ipsum">Lorem Ipsum Dolor Sim</string>
+    <string name="refill">Refill</string>
+    <string name="water">Water</string>
+    <string name="get_started">Get Started</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="log_in">Log In</string>
 </resources>

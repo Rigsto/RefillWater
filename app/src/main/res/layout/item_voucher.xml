@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="370dp"
+    android:layout_height="150dp"
+    android:layout_marginEnd="@dimen/default_size"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/frame"
+        android:src="@drawable/frame" />
+
+    <ImageView
+        android:id="@+id/img_item_voucher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/background"
+        android:src="@drawable/carousel" />
+</RelativeLayout>

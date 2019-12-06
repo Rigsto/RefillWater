@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/default_size">
+
+    <TextView
+        android:id="@+id/tv_gallon_short_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_size"
+        android:text="@string/lantai_2"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_mediumsmall" />
+
+    <ProgressBar
+        android:id="@+id/pb_gallon_short_remain"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:backgroundTint="@color/colorPrimaryLight"
+        android:progress="70"
+        android:progressTint="@color/colorPrimaryLight" />
+</LinearLayout>

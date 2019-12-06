@@ -29,4 +29,5 @@
 
     <dimen name="voucher_width">280dp</dimen>
     <dimen name="voucher_height">148dp</dimen>
+    <dimen name="indicator">10dp</dimen>
 </resources>

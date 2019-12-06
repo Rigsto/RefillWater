@@ -4,14 +4,16 @@ import com.google.gson.annotations.SerializedName
 
 data class History (
     @SerializedName("id")
-    var historyid :String? = null,
+    var id: String? = null,
 
     @SerializedName("price")
-    var historyPrice :String? = null,
+    var price: Int? = 0,
 
     @SerializedName("updated_at")
-    var historyDate :String? = null,
+    var date: String? = null,
 
     @SerializedName("nRefill")
-    var historyAmount :String? = null
-    )
+    var amount: Int = 0,
+
+    var floor: Int? = null
+)

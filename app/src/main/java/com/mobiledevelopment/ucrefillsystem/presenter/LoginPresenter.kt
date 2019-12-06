@@ -1,30 +1,37 @@
 package com.mobiledevelopment.ucrefillsystem.presenter
 
 import com.google.gson.Gson
+import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
 import com.mobiledevelopment.ucrefillsystem.model.response.UsersResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
+import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class LoginPresenter (private val view : MainView,
-                               private val apiRepository: ApiRepository,
-                               private val gson: Gson
-        ){
-            fun getUserList (name : String?){
-                view.showLoading()
+class LoginPresenter(
+    private val view: LoginView,
+    private val apiRepository: ApiRepository,
+    private val gson: Gson,
+    private val context: CoroutineContextProvider = CoroutineContextProvider()
+) {
+    fun getUserList(name: String) {
+        view.showLoading()
 
-                GlobalScope.launch(Dispatchers.Main){
-                    val data = gson.fromJson(apiRepository.doRequest(RefillWaterAPI.getUser(name)).await(), UsersResponse::class.java)
+        GlobalScope.launch(Dispatchers.Main) {
+            val data = gson.fromJson(
+                apiRepository.doRequest(RefillWaterAPI.getUser(name)).await(),
+                UsersResponse::class.java
+            )
 
-                    view.showNameList(data.users)
-                    view.hideLoading()
-                }
+            view.getUser(data.users.get(0))
+            view.hideLoading()
+        }
 
     }
 
-    fun SendUser(name :String?) {
+    fun SendUser(name: String?) {
 //        AndroidNetworking.post(RefillWaterAPI.CreateUser(name))
 //            .addBodyParameter("nim",txNim.text.toString())
 //            .addBodyParameter("name",txName.text.toString())
