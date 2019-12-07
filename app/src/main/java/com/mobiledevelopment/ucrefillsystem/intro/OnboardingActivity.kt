@@ -48,7 +48,9 @@ class OnboardingActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
         Glide.with(this).load(R.drawable.circle_blue_light).into(img_onboarding_indicator_1)
         Glide.with(this).load(R.drawable.circle_blue_light).into(img_onboarding_indicator_2)
 
-        when (position) {
+        val pos = position % 3
+
+        when (pos) {
             0 -> {
                 Glide.with(this).load(R.drawable.circle_blue).into(img_onboarding_indicator_0)
             }

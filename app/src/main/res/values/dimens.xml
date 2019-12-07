@@ -27,7 +27,7 @@
     <dimen name="super_small_size">2dp</dimen>
     <dimen name="img_padding">12dp</dimen>
 
-    <dimen name="voucher_width">280dp</dimen>
-    <dimen name="voucher_height">148dp</dimen>
+    <dimen name="voucher_width">300dp</dimen>
+    <dimen name="voucher_height">120dp</dimen>
     <dimen name="indicator">10dp</dimen>
 </resources>

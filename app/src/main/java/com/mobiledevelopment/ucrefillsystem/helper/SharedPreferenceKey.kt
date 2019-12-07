@@ -9,4 +9,6 @@ object SharedPreferenceKey {
     var fullname = "name"
     var nim = "nim"
     var api = "api"
+
+    var notification = "notif"
 }

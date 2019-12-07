@@ -14,6 +14,11 @@ class GallonVolumeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallon_volume)
 
+        supportActionBar?.hide()
+        tb_gallon_volume.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         gallonVolumeAdapter = GallonVolumeAdapter(this, getDummyGallonData())
         rv_gallon_volume.adapter = gallonVolumeAdapter
         rv_gallon_volume.layoutManager =

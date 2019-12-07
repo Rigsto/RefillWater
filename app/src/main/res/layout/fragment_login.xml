@@ -50,7 +50,6 @@
                 android:layout_gravity="start"
                 android:background="@drawable/input_text_rounded_corner"
                 android:backgroundTint="@color/colorPrimaryLight"
-                android:enabled="false"
                 android:padding="20dp"
                 android:text="@string/login"
                 android:textColor="@color/txt_button" />
@@ -60,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:indeterminateTint="@android:color/white"
+                android:indeterminateTint="@color/colorPrimary"
                 android:visibility="gone" />
         </RelativeLayout>
 

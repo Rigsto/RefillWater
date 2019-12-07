@@ -32,8 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/default_size">
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -41,7 +40,10 @@
                 app:cardElevation="@dimen/default_size"
                 app:cardCornerRadius="@dimen/double_size"
                 app:cardMaxElevation="@dimen/default_size"
-                app:contentPadding="@dimen/default_size" >
+                android:layout_marginStart="@dimen/onehalf_size"
+                android:layout_marginTop="@dimen/onehalf_size"
+                android:layout_marginEnd="@dimen/onehalf_size"
+                app:contentPadding="@dimen/default_size">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -89,7 +91,7 @@
                         android:layout_marginStart="@dimen/default_size"
                         android:layout_marginEnd="@dimen/default_size"
                         android:text="@string/johndoe_student_ciputra_ac_id"
-                        android:textSize="@dimen/text_mediumsmall"
+                        android:textSize="@dimen/text_small"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView2"
                         app:layout_constraintTop_toBottomOf="@+id/tv_account_name" />
@@ -115,6 +117,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/double_size"
+                android:layout_marginStart="@dimen/onehalf_size"
+                android:layout_marginEnd="@dimen/onehalf_size"
                 android:padding="@dimen/default_size"
                 android:background="@drawable/bg_white">
 
@@ -146,6 +150,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginStart="@dimen/onehalf_size"
+                android:layout_marginEnd="@dimen/onehalf_size"
                 android:layout_marginTop="@dimen/half_size"
                 android:padding="@dimen/default_size"
                 android:background="@drawable/bg_white">
@@ -172,6 +178,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginStart="@dimen/onehalf_size"
+                android:layout_marginEnd="@dimen/onehalf_size"
                 android:layout_marginTop="@dimen/half_size"
                 android:padding="@dimen/default_size"
                 android:background="@drawable/bg_white">
@@ -199,6 +207,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/half_size"
+                android:layout_marginStart="@dimen/onehalf_size"
+                android:layout_marginEnd="@dimen/onehalf_size"
                 android:padding="@dimen/default_size"
                 android:background="@drawable/bg_white">
 

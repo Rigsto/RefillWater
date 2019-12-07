@@ -3,6 +3,7 @@
     package="com.mobiledevelopment.ucrefillsystem">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -35,9 +36,6 @@
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WaterSliderActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".GallonVolumeActivity"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="portrait" />
@@ -47,9 +45,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LoginActivity"
             android:screenOrientation="portrait">
             <!--            <intent-filter>-->
             <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -58,6 +53,9 @@
             <!--                <category android:name="android.intent.category.LAUNCHER" />-->
             <!--            </intent-filter>-->
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

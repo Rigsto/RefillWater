@@ -9,26 +9,33 @@
     android:background="@drawable/bg_tobottom"
     tools:context=".SummaryActivity">
 
-    <Toolbar
-        android:id="@+id/tb_summary"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingEnd="@dimen/default_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:navigationIcon="@drawable/ic_left_arrow">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
-        <TextView
-            android:id="@+id/tv_summary_save"
+        <Toolbar
+            android:id="@+id/tb_summary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save_summary"
-            android:textSize="@dimen/text_medium"
-            android:textColor="@android:color/white"
-            android:textAlignment="textEnd"
-            android:textStyle="bold" />
-    </Toolbar>
+            android:layout_height="?attr/actionBarSize"
+            android:navigationIcon="@drawable/ic_left_arrow"
+            android:paddingEnd="@dimen/default_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_summary_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_summary"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+        </Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

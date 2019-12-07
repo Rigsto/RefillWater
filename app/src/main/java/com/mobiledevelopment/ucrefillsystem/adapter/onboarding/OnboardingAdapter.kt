@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.fragment.intro.OnboardingFragment
 
+
 class OnboardingAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     private val images =
         arrayOf(R.drawable.onboarding1, R.drawable.onboarding2, R.drawable.onboarding3)
@@ -14,10 +15,11 @@ class OnboardingAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     private val descs = arrayOf("Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum")
 
     override fun getCount(): Int {
-        return titles.size
+        return 100
     }
 
     override fun getItem(position: Int): Fragment {
-        return OnboardingFragment(images[position], titles[position], descs[position])
+        val pos = position % titles.size
+        return OnboardingFragment(images[pos], titles[pos], descs[pos])
     }
 }

@@ -15,5 +15,5 @@ data class History (
     @SerializedName("nRefill")
     var amount: Int = 0,
 
-    var floor: Int? = null
+    var place: String? = null
 )

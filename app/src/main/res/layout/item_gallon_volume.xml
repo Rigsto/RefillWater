@@ -12,23 +12,24 @@
 
         <TextView
             android:id="@+id/tv_gallon_place"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="@string/lantai_2"
             android:textSize="@dimen/text_mediumsmall"
+            android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_marginEnd="@dimen/half_size" />
 
         <ProgressBar
             android:id="@+id/pb_gallon_remain"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="6dp"
             android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             style="?android:attr/progressBarStyleHorizontal"
-            android:backgroundTint="@color/colorPrimaryLight"
+            android:background="@drawable/progressbar_blue"
             android:progress="70"
-            android:progressTint="@color/colorPrimaryLight"
-            android:layout_gravity="center"/>
+            android:progressDrawable="@drawable/progressbar_blue" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

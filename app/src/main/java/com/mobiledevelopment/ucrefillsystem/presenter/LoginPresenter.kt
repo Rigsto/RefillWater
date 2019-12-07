@@ -2,12 +2,11 @@ package com.mobiledevelopment.ucrefillsystem.presenter
 
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
-import com.mobiledevelopment.ucrefillsystem.model.response.UsersResponse
+import com.mobiledevelopment.ucrefillsystem.model.User
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
-import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class LoginPresenter(
@@ -16,16 +15,35 @@ class LoginPresenter(
     private val gson: Gson,
     private val context: CoroutineContextProvider = CoroutineContextProvider()
 ) {
-    fun getUserList(name: String) {
+    fun login(username: String, password: String) {
         view.showLoading()
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val data = gson.fromJson(
-                apiRepository.doRequest(RefillWaterAPI.getUser(name)).await(),
-                UsersResponse::class.java
-            )
+//        GlobalScope.launch(Dispatchers.Main) {
+//            val data = gson.fromJson(
+//                apiRepository.doRequest(RefillWaterAPI.getUser(name)).await(),
+//                UsersResponse::class.java
+//            )
+//
+//            view.getUser(data.users.get(0))
+//            view.hideLoading()
+//        }
 
-            view.getUser(data.users.get(0))
+        GlobalScope.launch(context.main) {
+            view.showLoading()
+            delay(2000L)
+
+            view.getUser(
+                User(
+                    "Auriga",
+                    "aaristo01@student.ciputra.ac.id",
+                    "L",
+                    "IMT",
+                    200,
+                    1,
+                    "20417012",
+                    "abc"
+                )
+            )
             view.hideLoading()
         }
 

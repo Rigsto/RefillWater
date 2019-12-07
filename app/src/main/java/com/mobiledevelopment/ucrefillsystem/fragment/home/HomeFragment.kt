@@ -8,18 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.mobiledevelopment.ucrefillsystem.GallonVolumeActivity
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.SummaryActivity
 import com.mobiledevelopment.ucrefillsystem.adapter.home.GallonVolumeShortAdapter
 import com.mobiledevelopment.ucrefillsystem.adapter.home.VoucherAdapter
+import com.mobiledevelopment.ucrefillsystem.helper.SharedPreferenceKey
+import com.mobiledevelopment.ucrefillsystem.helper.getDummyGallonData
+import com.mobiledevelopment.ucrefillsystem.helper.getDummyVoucherData
+import com.mobiledevelopment.ucrefillsystem.helper.sharePref
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-/**
- * A simple [Fragment] subclass.
- */
 class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var voucherAdapter: VoucherAdapter
     private lateinit var gallonVolumeShortAdapter: GallonVolumeShortAdapter
@@ -35,28 +35,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        activity?.setActionBar(tb_home)
+
         voucherAdapter = VoucherAdapter(context!!)
+        voucherAdapter.addVoucher(context!!.getDummyVoucherData())
         rv_home_voucher.adapter = voucherAdapter
         rv_home_voucher.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rv_home_voucher.setHasFixedSize(true)
-        rvi_home_voucher.setRecyclerView(rv_home_voucher)
-        rvi_home_voucher.forceUpdateItemCount()
-        rvi_home_voucher.setCurrentPosition(0)
-        rv_home_volume.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                when (newState) {
-                    RecyclerView.SCROLL_STATE_IDLE -> {
-                        val position =
-                            ((recyclerView.layoutManager) as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
-                        rvi_home_voucher.setCurrentPosition(position)
-                    }
-                }
-            }
-        })
 
         gallonVolumeShortAdapter = GallonVolumeShortAdapter(context!!)
+        gallonVolumeShortAdapter.addList(context!!.getDummyGallonData())
         rv_home_volume.adapter = gallonVolumeShortAdapter
         rv_home_volume.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -64,7 +53,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         tv_voucher_viewall.setOnClickListener(this)
         tv_volume_viewall.setOnClickListener(this)
-        tv_hydration_check.setOnClickListener(this)
+        cv_hydration_level.setOnClickListener(this)
+
+        val sp = context!!.sharePref()
+        tv_home_name.text = "Hi, ${sp.getString(SharedPreferenceKey.fullname, "")}!"
+        tv_home_nim.text = "NIM ${sp.getString(SharedPreferenceKey.nim, "")}"
     }
 
     override fun onClick(v: View) {
@@ -74,7 +67,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.tv_volume_viewall -> {
                 startActivity(Intent(activity, GallonVolumeActivity::class.java))
             }
-            R.id.tv_hydration_check -> {
+            R.id.cv_hydration_level -> {
                 startActivity(Intent(activity, SummaryActivity::class.java))
             }
         }

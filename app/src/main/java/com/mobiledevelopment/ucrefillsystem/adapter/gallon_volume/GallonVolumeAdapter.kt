@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.model.Gallon
@@ -36,9 +37,14 @@ class GallonVolumeAdapter(private val context: Context, private val gallons: Lis
         private val remain = view.tv_gallon_remain
 
         fun bindContent(gallon: Gallon) {
-            floor.text = "Lantai ${gallon.floor}"
+//            floor.text = "Lantai ${gallon.floor}"
+            floor.text = gallon.place
             pbremain.progress = gallon.remainPercentage.toInt()
             remain.text = "${gallon.remain} ml"
+
+            if (gallon.remainPercentage < 25.0)
+                pbremain.progressDrawable =
+                    ContextCompat.getDrawable(context, R.drawable.progressbar_red)
         }
     }
 }
