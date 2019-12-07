@@ -42,6 +42,10 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                         fragment = HistoryFragment()
                         bottom_navigation.menu.getItem(1).setChecked(true)
                     }
+                    "account" -> {
+                        fragment = AccountFragment()
+                        bottom_navigation.menu.getItem(4).setChecked(true)
+                    }
                 }
             }
         }
