@@ -32,7 +32,7 @@ class LoginPresenter(
             view.showLoading()
             delay(2000L)
 
-            view.getUser(
+            view.loginSuccess(
                 User(
                     "Auriga",
                     "aaristo01@student.ciputra.ac.id",
