@@ -63,7 +63,7 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
         btn_login.visible()
     }
 
-    override fun getUser(user: User) {
+    override fun loginSuccess(user: User) {
         context!!.sharePref().edit()
             .putString(SharedPreferenceKey.fullname, user.name)
             .putString(SharedPreferenceKey.api, user.api)
@@ -73,5 +73,9 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
 
         startActivity(Intent(activity, HomeActivity::class.java))
         activity?.finish()
+    }
+
+    override fun loginFailed() {
+
     }
 }
