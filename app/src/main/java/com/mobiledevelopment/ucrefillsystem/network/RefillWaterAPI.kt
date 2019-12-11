@@ -9,7 +9,7 @@ object RefillWaterAPI {
         return address +""
     }
 
-    fun CreateUser (name : String?):String{
+    fun CreateUser (link : String?):String{
         return address +""
     }
 

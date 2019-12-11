@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
 import com.mobiledevelopment.ucrefillsystem.model.User
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
+import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -49,23 +50,4 @@ class LoginPresenter(
 
     }
 
-    fun SendUser(name: String?) {
-//        AndroidNetworking.post(RefillWaterAPI.CreateUser(name))
-//            .addBodyParameter("nim",txNim.text.toString())
-//            .addBodyParameter("name",txName.text.toString())
-//            .addBodyParameter("address",txAddress.text.toString())
-//            .addBodyParameter("gender",gender)
-//            .setPriority(Priority.MEDIUM)
-//            .build()
-//            .getAsJSONObject(object : JSONObjectRequestListener {
-//                override fun onResponse(response: JSONObject?) {
-//                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//                }
-//
-//                override fun onError(anError: ANError?) {
-//                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//                }
-//
-//            })
-    }
 }

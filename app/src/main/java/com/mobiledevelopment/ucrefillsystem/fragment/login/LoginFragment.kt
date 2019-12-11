@@ -48,6 +48,7 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
             }
             R.id.btn_login -> {
                 presenter.login("", "")
+
             }
         }
     }
