@@ -40,8 +40,8 @@ class AccountFragment : Fragment(), View.OnClickListener {
         }
 
         val sp = context!!.sharePref()
-        tv_account_name.text = "Hi, ${sp.getString(SharedPreferenceKey.fullname, "")}!"
-        tv_account_email.text = sp.getString(SharedPreferenceKey.email, "")
+        tv_account_name.text = "Hi, ${sp.getString(SharedPreferenceKey.NAME_KEY, "")}!"
+        tv_account_email.text = sp.getString(SharedPreferenceKey.EMAIL_KEY, "")
         val sw = sp.getBoolean(SharedPreferenceKey.notification, false)
         sw_notifications.isChecked = sw
     }

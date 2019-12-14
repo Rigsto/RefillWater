@@ -2,7 +2,9 @@ package com.mobiledevelopment.ucrefillsystem.presenter
 
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
+import com.mobiledevelopment.ucrefillsystem.model.TokenAccess
 import com.mobiledevelopment.ucrefillsystem.model.User
+import com.mobiledevelopment.ucrefillsystem.model.response.LoginResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
@@ -16,38 +18,32 @@ class LoginPresenter(
     private val gson: Gson,
     private val context: CoroutineContextProvider = CoroutineContextProvider()
 ) {
-    fun login(username: String, password: String) {
+    fun login(email: String, password: String) {
         view.showLoading()
 
-//        GlobalScope.launch(Dispatchers.Main) {
-//            val data = gson.fromJson(
-//                apiRepository.doRequest(RefillWaterAPI.getUser(name)).await(),
-//                UsersResponse::class.java
-//            )
-//
-//            view.getUser(data.users.get(0))
-//            view.hideLoading()
-//        }
-
         GlobalScope.launch(context.main) {
-            view.showLoading()
-            delay(2000L)
+            val data = gson.fromJson(
+                apiRepository.doRequest(
+                    RefillWaterAPI.Login(
+                        email,
+                        password
+                    )
 
-            view.loginSuccess(
-                User(
-                    "Auriga",
-                    "aaristo01@student.ciputra.ac.id",
-                    "L",
-                    "IMT",
-                    200,
-                    1,
-                    "20417012",
-                    "abc"
-                )
+
+
+                ).await(), LoginResponse::class.java
             )
-            view.hideLoading()
-        }
 
+
+
+            if (data.message.equals("Account disabled")) {
+                view.loginFailed()
+                view.hideLoading()
+            } else {
+
+                view.loginSuccess(data, "")
+            }
+        }
     }
 
 }

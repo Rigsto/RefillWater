@@ -24,9 +24,9 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
 
-        val name = sharePref().getString(SharedPreferenceKey.fullname, "")
+        val name = sharePref().getString(SharedPreferenceKey.NAME_KEY, "")
         edt_eprofile_name.setText(name)
-        val email = sharePref().getString(SharedPreferenceKey.email, "")
+        val email = sharePref().getString(SharedPreferenceKey.EMAIL_KEY, "")
         edt_eprofile_email.setText(email)
 
         btn_eprofile_save.setOnClickListener(this)
@@ -42,8 +42,8 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_eprofile_save -> {
                 if (checkData()) {
                     sharePref().edit()
-                        .putString(SharedPreferenceKey.fullname, edt_eprofile_name.text.toString())
-                        .putString(SharedPreferenceKey.email, edt_eprofile_email.text.toString())
+                        .putString(SharedPreferenceKey.NAME_KEY, edt_eprofile_name.text.toString())
+                        .putString(SharedPreferenceKey.EMAIL_KEY, edt_eprofile_email.text.toString())
                         .apply()
 
                     startActivity(

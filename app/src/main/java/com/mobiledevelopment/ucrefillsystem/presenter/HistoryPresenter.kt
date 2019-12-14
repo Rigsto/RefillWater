@@ -2,7 +2,7 @@ package com.mobiledevelopment.ucrefillsystem.presenter
 
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
-import com.mobiledevelopment.ucrefillsystem.model.response.HistoriesResponse
+import com.mobiledevelopment.ucrefillsystem.model.History
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.HistoryView
@@ -20,11 +20,10 @@ class HistoryPresenter(
 
         GlobalScope.launch(context.main) {
             val data = gson.fromJson(
-                apiRepository.doRequest(RefillWaterAPI.SeeHistory(name)).await(),
-                HistoriesResponse::class.java
+                apiRepository.doRequest(RefillWaterAPI.HistoryTopUp(name)).await(),
+                History::class.java
             )
-
-            view.showHistoryList(data.histories)
+            
             view.hideLoading()
         }
     }

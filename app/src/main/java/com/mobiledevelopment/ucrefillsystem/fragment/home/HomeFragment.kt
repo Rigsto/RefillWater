@@ -56,8 +56,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         cv_hydration_level.setOnClickListener(this)
 
         val sp = context!!.sharePref()
-        tv_home_name.text = "Hi, ${sp.getString(SharedPreferenceKey.fullname, "")}!"
-        tv_home_nim.text = "NIM ${sp.getString(SharedPreferenceKey.nim, "")}"
+        tv_home_name.text = "Hi, ${sp.getString(SharedPreferenceKey.NAME_KEY, "")}!"
+        tv_home_nim.text = "NIM ${sp.getString(SharedPreferenceKey.EMAIL_KEY, "")}"
     }
 
     override fun onClick(v: View) {

@@ -3,6 +3,7 @@ package com.mobiledevelopment.ucrefillsystem.model
 import com.google.gson.annotations.SerializedName
 
 data class User (
+
     @SerializedName ("name")
     var name: String? = null,
 
@@ -19,11 +20,5 @@ data class User (
     var majors: String? = null,
 
     @SerializedName ("balance")
-    var balance: Int = 0,
-
-    @SerializedName ("role_id")
-    var role: Int = 0,
-
-    var nim: String? = null,
-    var api: String? = null
+    var balance: Int = 0
 )

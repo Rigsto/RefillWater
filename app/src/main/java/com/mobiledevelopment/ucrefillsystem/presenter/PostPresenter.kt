@@ -14,7 +14,7 @@ class PostPresenter (private val view: PostInterface
 ){
 
     fun LoginUser() {
-        AndroidNetworking.post(RefillWaterAPI.CreateUser(""))
+        AndroidNetworking.post(RefillWaterAPI.Register())
             .addBodyParameter("Name", "")
             .addBodyParameter("password","")
             .setPriority(Priority.MEDIUM)
@@ -33,7 +33,7 @@ class PostPresenter (private val view: PostInterface
 
     fun RegisterUser(username:String, pass:String){
 
-        AndroidNetworking.post(RefillWaterAPI.CreateUser(""))
+        AndroidNetworking.post(RefillWaterAPI.Register())
             .addBodyParameter("Name", username)
             .addBodyParameter("password",pass)
             .setPriority(Priority.MEDIUM)

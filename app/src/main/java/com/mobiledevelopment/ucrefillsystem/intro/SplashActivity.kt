@@ -25,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 finish()
             } else {
-                val api = sharePref().getString(SharedPreferenceKey.api, "")
+                val api = sharePref().getString(SharedPreferenceKey.API_KEY, "")
                 if (api == "") {
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
