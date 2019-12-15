@@ -98,14 +98,14 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
         btn_login.visible()
     }
 
-    override fun loginSuccess(user: LoginResponse, token: String?) {
+    override fun loginSuccess() {
         val sp = context?.sharePref()
 
         if (auto == 0) {
-            sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY, "Micth")
+            sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY,"Micth")
                 ?.putString(SharedPreferenceKey.EMAIL_KEY, email)
                 ?.putString(SharedPreferenceKey.PASSWORD_KEY, password)
-                ?.putString(SharedPreferenceKey.API_KEY, token)?.apply()
+                ?.putString(SharedPreferenceKey.API_KEY, "")?.apply()
         }
 
         sp?.edit()?.putInt(SharedPreferenceKey.MONEY_KEY, 200!!)?.apply()

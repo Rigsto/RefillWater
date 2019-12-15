@@ -7,6 +7,6 @@ import com.mobiledevelopment.ucrefillsystem.model.response.LoginResponse
 interface LoginView {
     fun showLoading()
     fun hideLoading()
-    fun loginSuccess(user: LoginResponse, token : String?)
+    fun loginSuccess()
     fun loginFailed()
 }
