@@ -1,7 +1,5 @@
 package com.mobiledevelopment.ucrefillsystem.presenter
 
-import android.content.Context
-import android.widget.Toast
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
@@ -13,8 +11,8 @@ import org.json.JSONObject
 class PostPresenter (private val view: PostInterface
 ){
 
-    fun LoginUser() {
-        AndroidNetworking.post(RefillWaterAPI.Register())
+    fun loginUser() {
+        AndroidNetworking.post(RefillWaterAPI.register())
             .addBodyParameter("Name", "")
             .addBodyParameter("password","")
             .setPriority(Priority.MEDIUM)
@@ -31,9 +29,9 @@ class PostPresenter (private val view: PostInterface
             })
     }
 
-    fun RegisterUser(username:String, pass:String){
+    fun registerUser(username:String, pass:String){
 
-        AndroidNetworking.post(RefillWaterAPI.Register())
+        AndroidNetworking.post(RefillWaterAPI.register())
             .addBodyParameter("Name", username)
             .addBodyParameter("password",pass)
             .setPriority(Priority.MEDIUM)
@@ -50,7 +48,7 @@ class PostPresenter (private val view: PostInterface
             })
     }
 
-    fun UpdateUser(){
+    fun updateUser(){
 
     }
 

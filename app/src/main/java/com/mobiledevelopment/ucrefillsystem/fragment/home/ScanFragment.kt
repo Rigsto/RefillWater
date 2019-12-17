@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
+import com.budiyev.android.codescanner.*
+import com.google.zxing.BarcodeFormat
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -62,6 +61,13 @@ class ScanFragment : Fragment() {
             }).check()
 
         codeScanner = CodeScanner(context!!, sqr_refill)
+        codeScanner.camera = CodeScanner.CAMERA_BACK
+        codeScanner.formats = listOf(BarcodeFormat.QR_CODE)
+        codeScanner.autoFocusMode = AutoFocusMode.SAFE
+        codeScanner.scanMode = ScanMode.SINGLE
+        codeScanner.isAutoFocusEnabled = true
+        codeScanner.isFlashEnabled = false
+        codeScanner.isTouchFocusEnabled = true
         codeScanner.decodeCallback = DecodeCallback {
             activity?.runOnUiThread {
                 val data = it.text
