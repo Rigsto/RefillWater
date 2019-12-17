@@ -5,29 +5,29 @@ import com.mobiledevelopment.ucrefillsystem.BuildConfig
 object RefillWaterAPI {
     private const val address = BuildConfig.BASE_URL
 
-    fun Login():String{
+    fun login():String{
         return "https://refill.test/api/login"
         //address +"login?email=$name&password=$password"
     }
 
-    fun Register():String{
+    fun register():String{
         return address
     }
 
-    fun GetProfile(email:String?):String{
+    fun getProfile(email:String?):String{
         return address+"profile"
     }
 
-    fun EditProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{
+    fun editProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{
         return address+""
     }
 
 
-    fun HistoryTopUp (name:String?): String{
+    fun historyTopUp (name:String?): String{
         return address+"my-topUp?name=$name"
     }
 
-    fun AccessToken (): String{
+    fun accessToken (): String{
         return address+"test-token"
     }
 }

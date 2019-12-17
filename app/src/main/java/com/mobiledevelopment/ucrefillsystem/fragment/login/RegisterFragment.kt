@@ -6,17 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.helper.invisible
 import com.mobiledevelopment.ucrefillsystem.helper.visible
-import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
-import com.mobiledevelopment.ucrefillsystem.presenter.LoginPresenter
 import com.mobiledevelopment.ucrefillsystem.presenter.PostPresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.PostInterface
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
-import kotlinx.android.synthetic.main.fragment_register.pb_login
 
 class RegisterFragment : Fragment(), View.OnClickListener, PostInterface {
     override fun hideLoading() {
@@ -60,7 +55,7 @@ class RegisterFragment : Fragment(), View.OnClickListener, PostInterface {
                 if (edt_register_password.text.toString() != edt_register_password2.text.toString()){
                     Toast.makeText(context, "Password Mismatch", Toast.LENGTH_LONG )
                 } else
-                presenter.RegisterUser(edt_register_email.text.toString(), edt_register_password.text.toString())
+                presenter.registerUser(edt_register_email.text.toString(), edt_register_password.text.toString())
             }
         }
     }

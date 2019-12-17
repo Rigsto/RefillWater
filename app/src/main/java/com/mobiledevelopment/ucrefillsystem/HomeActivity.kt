@@ -15,7 +15,6 @@ import com.mobiledevelopment.ucrefillsystem.helper.gone
 import com.mobiledevelopment.ucrefillsystem.helper.visible
 import kotlinx.android.synthetic.main.activity_home.*
 
-
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var fragment: Fragment
     private lateinit var cameraPermissionListener: PermissionListener
