@@ -98,14 +98,14 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
         btn_login.visible()
     }
 
-    override fun loginSuccess() {
+    override fun loginSuccess(name : String?, balance : String?) {
         val sp = context?.sharePref()
 
         if (auto == 0) {
-            sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY,"Micth")
+            sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY,name)
                 ?.putString(SharedPreferenceKey.EMAIL_KEY, email)
                 ?.putString(SharedPreferenceKey.PASSWORD_KEY, password)
-                ?.putString(SharedPreferenceKey.API_KEY, "")?.apply()
+                ?.putString(SharedPreferenceKey.API_KEY,balance)?.apply()
         }
 
         sp?.edit()?.putInt(SharedPreferenceKey.MONEY_KEY, 200!!)?.apply()
@@ -114,11 +114,11 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
         activity?.finish()
     }
 
-    override fun loginFailed() {
+    override fun loginFailed(message : String) {
         val sp = context?.sharePref()
         sp?.edit()?.clear()?.apply()
 
         auto = 0
-        Toast.makeText(context, "Login Failed! Please try again later", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

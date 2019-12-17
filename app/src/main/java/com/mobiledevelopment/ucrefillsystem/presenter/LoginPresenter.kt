@@ -6,6 +6,12 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.coroutines.awaitStringResponse
+import com.github.kittinunf.fuel.coroutines.awaitStringResponseResult
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.result.Result
 import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
 import com.mobiledevelopment.ucrefillsystem.model.TokenAccess
@@ -23,6 +29,7 @@ import okhttp3.*
 import okhttp3.OkHttpClient
 import java.io.IOException
 import com.google.gson.JsonObject
+import kotlinx.coroutines.runBlocking
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import org.json.JSONObject
@@ -38,6 +45,20 @@ class LoginPresenter(
 ) {
     fun login(email: String, password: String) {
     view.showLoading()
+/*
+        val bodyJson = """
+  { "email" : '$email',
+    "password" : '$password'
+  }
+"""
+        println(bodyJson)
+        runBlocking {
+            val (request, response, result) = Fuel.post("https://refill.fusionsvisual.com/api/login")
+                .body(bodyJson)
+                .awaitStringResponse()
+            println(response)
+
+        } */
 
         AndroidNetworking.post("https://refill.fusionsvisual.com/api/login")
             .addHeaders("Accept", "application/json")
@@ -48,19 +69,27 @@ class LoginPresenter(
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject?) {
 
-                   // getdata(email)
+                    val message = response?.getString("message")
+
+                    if (message == "Account disabled" || message == "Please verify email address"){
+                        view.hideLoading()
+                        view.loginFailed(message)
+                    }
+
                     view.hideLoading()
-                    view.loginSuccess()
+                    view.loginSuccess("Kim Min Ju", "8000")
+
                 }
 
                 override fun onError(anError: ANError?) {
                     view.hideLoading()
                     Log.d("ONERROR",anError?.errorDetail?.toString())
-                    view.loginFailed()
-                }
+                    view.loginFailed("Login Failed! Please try again later")
+            }
 
 
             })
+
 
 
 
@@ -75,14 +104,18 @@ class LoginPresenter(
                     .getAsJSONObject(object : JSONObjectRequestListener{
                         override fun onResponse(response: JSONObject?) {
 
+                            println(response)
+
+
 
 
                         }
 
                         override fun onError(anError: ANError?) {
                             view.hideLoading()
+                            println("error here")
                             Log.d("ONERROR",anError?.errorDetail?.toString())
-                            view.loginFailed()
+
                         }
                     })
         /*

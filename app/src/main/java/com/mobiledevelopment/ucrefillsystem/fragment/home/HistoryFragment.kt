@@ -7,16 +7,41 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.adapter.history.HistoryAdapter
 import com.mobiledevelopment.ucrefillsystem.helper.getDummyHistoryData
+import com.mobiledevelopment.ucrefillsystem.helper.gone
+import com.mobiledevelopment.ucrefillsystem.helper.invisible
+import com.mobiledevelopment.ucrefillsystem.helper.visible
+import com.mobiledevelopment.ucrefillsystem.model.History
+import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
+import com.mobiledevelopment.ucrefillsystem.presenter.HistoryPresenter
+import com.mobiledevelopment.ucrefillsystem.viewinterface.HistoryView
 import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.android.synthetic.main.fragment_login.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(), HistoryView{
+    override fun showLoading() {
+        pb_login.visible()
+        btn_login.invisible()
+    }
+
+    override fun hideLoading() {
+        pb_login.gone()
+        btn_login.visible()
+    }
+
+    override fun showHistoryList() {
+
+    }
+
     private lateinit var historyAdapter: HistoryAdapter
+    private lateinit var presenter: HistoryPresenter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,11 +53,15 @@ class HistoryFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        presenter = HistoryPresenter(this, ApiRepository(), Gson())
         historyAdapter = HistoryAdapter(context!!, context!!.getDummyHistoryData())
         rv_history.adapter = historyAdapter
         rv_history.setHasFixedSize(true)
         rv_history.layoutManager =
             LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
+
+
+
+
     }
 }
