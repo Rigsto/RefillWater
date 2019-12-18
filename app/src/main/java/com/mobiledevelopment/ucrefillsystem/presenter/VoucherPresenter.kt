@@ -23,8 +23,7 @@ class VoucherPresenter(
                 VoucherResponse::class.java
             )
 
-            val vouchers = data.data.toList()
-            view.showVouchers(vouchers)
+            view.showVouchers(data.data)
         }
     }
 }

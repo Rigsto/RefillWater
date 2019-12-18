@@ -3,6 +3,7 @@ package com.mobiledevelopment.ucrefillsystem.helper
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.View
+import android.widget.Toast
 import java.math.BigInteger
 import java.security.MessageDigest
 import java.text.NumberFormat
@@ -43,4 +44,35 @@ fun View.gone() {
 
 fun Context.sharePref(): SharedPreferences {
     return this.getSharedPreferences(SharedPreferenceKey.PREF_KEY, Context.MODE_PRIVATE)
+}
+
+fun Context.comingSoon() {
+    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+}
+
+fun String.checkGallonId(): Boolean {
+    val id = this
+    if (id.length != 5) return false
+    if (id[0] != 'L' && id[0] != 'B') return false
+
+    val floor = ("${id[1]}${id[2]}")
+    try {
+        val floorInt = floor.toInt()
+        if (floorInt in 1..13) {
+            val code = ("${id[3]}${id[4]}")
+            try {
+                val codeInt = code.toInt()
+                if (codeInt in 1..99) {
+                    return true
+                }
+            } catch (e: Exception) {
+                return false
+            }
+        } else {
+            return false
+        }
+    } catch (e: Exception) {
+        return false
+    }
+    return false
 }

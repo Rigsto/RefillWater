@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_payment_status"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/b4_success"
+    android:paddingStart="@dimen/default_size"
+    android:paddingEnd="@dimen/default_size"
+    tools:context=".RefillPaymentResultActivity">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/alert_bg" />
+
+    <ImageView
+        android:id="@+id/img_payment_status_logo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/ic_check_white_24dp" />
+
+    <TextView
+        android:id="@+id/tv_payment_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_payment_status_logo"
+        android:layout_marginTop="@dimen/half_size"
+        android:text="@string/payment_successful"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_huge"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_payment_status"
+        android:layout_marginStart="@dimen/default_size"
+        android:layout_marginTop="@dimen/double_size"
+        android:layout_marginEnd="@dimen/default_size"
+        android:background="@drawable/bg_white"
+        android:orientation="vertical"
+        android:padding="@dimen/default_size">
+
+        <TextView
+            android:id="@+id/tv_payment_status2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/you_have_paid"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_medium" />
+
+        <TextView
+            android:id="@+id/tv_payment_ststus_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rp_10_000"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_giant"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/super_small_size"
+            android:layout_marginTop="@dimen/default_size"
+            android:layout_marginBottom="@dimen/default_size"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enjoy_your_drink"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_giant"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-16dp"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize" />
+    </com.google.android.material.appbar.AppBarLayout>
+</RelativeLayout>

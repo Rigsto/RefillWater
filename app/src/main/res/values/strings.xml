@@ -85,4 +85,12 @@
     <string name="log_in">Log In</string>
     <string name="scan_qr_code">Scan QR Code</string>
     <string name="balance">Balance</string>
+    <string name="log_out">Log Out</string>
+    <string name="my_bottle">My Bottle</string>
+    <string name="_0">0</string>
+    <string name="image">image</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="you_have_paid">You have paid</string>
+    <string name="rp_10_000">Rp. 10.000</string>
+    <string name="enjoy_your_drink">Enjoy your drink!</string>
 </resources>

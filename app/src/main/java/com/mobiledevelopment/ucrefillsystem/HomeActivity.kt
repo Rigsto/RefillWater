@@ -1,7 +1,10 @@
 package com.mobiledevelopment.ucrefillsystem
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -10,13 +13,12 @@ import com.karumi.dexter.listener.single.PermissionListener
 import com.mobiledevelopment.ucrefillsystem.fragment.home.AccountFragment
 import com.mobiledevelopment.ucrefillsystem.fragment.home.HistoryFragment
 import com.mobiledevelopment.ucrefillsystem.fragment.home.HomeFragment
-import com.mobiledevelopment.ucrefillsystem.fragment.home.ScanFragment
-import com.mobiledevelopment.ucrefillsystem.helper.gone
 import com.mobiledevelopment.ucrefillsystem.helper.visible
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var fragment: Fragment
+    private var doubleBackToExitPressedOnce = false
     private lateinit var cameraPermissionListener: PermissionListener
     private lateinit var errorListener: PermissionRequestErrorListener
     private var KEY = "savefragment"
@@ -27,7 +29,6 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         supportActionBar?.hide()
         bottom_navigation.setOnNavigationItemSelectedListener(this)
-        createPermissionListeners()
 
         if (savedInstanceState != null)
             fragment = supportFragmentManager.getFragment(savedInstanceState, KEY)!!
@@ -66,10 +67,7 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 return true
             }
             R.id.bnv_scan -> {
-                fragment = ScanFragment()
-                loadFragment()
-                img_bnv.gone()
-                return true
+                startActivity(Intent(this, ScanActivity::class.java))
             }
             R.id.bnv_cart -> {
 
@@ -94,7 +92,16 @@ class HomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         supportFragmentManager.putFragment(outState, KEY, fragment)
     }
 
-    private fun createPermissionListeners() {
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            finish()
+            return
+        }
 
+        Toast.makeText(this, "Press again to exit!", Toast.LENGTH_SHORT).show()
+        this.doubleBackToExitPressedOnce = true
+
+        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 }

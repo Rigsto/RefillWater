@@ -16,6 +16,7 @@ import com.mobiledevelopment.ucrefillsystem.SummaryActivity
 import com.mobiledevelopment.ucrefillsystem.adapter.home.GallonVolumeShortAdapter
 import com.mobiledevelopment.ucrefillsystem.adapter.home.VoucherAdapter
 import com.mobiledevelopment.ucrefillsystem.helper.SharedPreferenceKey
+import com.mobiledevelopment.ucrefillsystem.helper.comingSoon
 import com.mobiledevelopment.ucrefillsystem.helper.readableNumber
 import com.mobiledevelopment.ucrefillsystem.helper.sharePref
 import com.mobiledevelopment.ucrefillsystem.model.Gallon
@@ -69,6 +70,7 @@ class HomeFragment : Fragment(), View.OnClickListener, VoucherView, GallonVolume
         tv_voucher_viewall.setOnClickListener(this)
         tv_volume_viewall.setOnClickListener(this)
         cv_hydration_level.setOnClickListener(this)
+        btn_home_topup.setOnClickListener(this)
 
         val sp = context!!.sharePref()
         tv_home_name.text = "Hi, ${sp.getString(SharedPreferenceKey.NAME_KEY, "")}!"
@@ -79,12 +81,16 @@ class HomeFragment : Fragment(), View.OnClickListener, VoucherView, GallonVolume
     override fun onClick(v: View) {
         when (v.id) {
             R.id.tv_voucher_viewall -> {
+                context?.comingSoon() //TODO bikin tampilan view all voucher
             }
             R.id.tv_volume_viewall -> {
                 startActivity(Intent(activity, GallonVolumeActivity::class.java))
             }
             R.id.cv_hydration_level -> {
                 startActivity(Intent(activity, SummaryActivity::class.java))
+            }
+            R.id.btn_home_topup -> {
+                context?.comingSoon()
             }
         }
     }

@@ -37,12 +37,11 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="@dimen/default_size"
                 app:cardCornerRadius="@dimen/double_size"
-                app:cardMaxElevation="@dimen/default_size"
                 android:layout_marginStart="@dimen/onehalf_size"
                 android:layout_marginTop="@dimen/onehalf_size"
                 android:layout_marginEnd="@dimen/onehalf_size"
+                app:cardElevation="0dp"
                 app:contentPadding="@dimen/default_size">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -228,6 +227,46 @@
                     android:textSize="@dimen/text_mediumsmall"
                     android:layout_marginStart="@dimen/half_size"/>
             </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_size">
+
+                <LinearLayout
+                    android:id="@+id/ll_account_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/onehalf_size"
+                    android:layout_marginEnd="@dimen/onehalf_size"
+                    android:background="@drawable/bg_white"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/default_size">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/logo"
+                        android:src="@drawable/ic_power" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/half_size"
+                        android:layout_weight="1"
+                        android:text="@string/log_out"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_mediumsmall" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/pb_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

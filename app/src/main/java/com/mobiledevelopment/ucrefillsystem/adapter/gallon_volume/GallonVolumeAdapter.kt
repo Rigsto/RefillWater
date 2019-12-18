@@ -12,8 +12,15 @@ import com.mobiledevelopment.ucrefillsystem.helper.getRemainPercentage
 import com.mobiledevelopment.ucrefillsystem.model.Gallon
 import kotlinx.android.synthetic.main.item_gallon_volume.view.*
 
-class GallonVolumeAdapter(private val context: Context, private val gallons: List<Gallon>) :
+class GallonVolumeAdapter(private val context: Context) :
     RecyclerView.Adapter<GallonVolumeAdapter.ViewHolder>() {
+
+    var list = mutableListOf<Gallon>()
+    fun addList(list: List<Gallon>) {
+        this.list.clear()
+        this.list.addAll(list)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -26,11 +33,11 @@ class GallonVolumeAdapter(private val context: Context, private val gallons: Lis
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindContent(gallons[position])
+        holder.bindContent(list[position])
     }
 
     override fun getItemCount(): Int {
-        return gallons.size
+        return list.size
     }
 
     inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {

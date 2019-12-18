@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseBottleActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:contentDescription="@string/background"
+        android:src="@drawable/bg_toright" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_size"
+        android:layout_marginTop="@dimen/double_size"
+        android:layout_marginEnd="@dimen/default_size"
+        android:layout_marginBottom="@dimen/default_size"
+        app:cardCornerRadius="@dimen/default_size"
+        app:cardElevation="@dimen/default_size"
+        app:cardMaxElevation="@dimen/default_size"
+        app:contentPaddingBottom="@dimen/double_size"
+        app:contentPaddingLeft="@dimen/default_size"
+        app:contentPaddingRight="@dimen/default_size"
+        app:contentPaddingTop="@dimen/double_size">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/how_much_water_do_you_want"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_medium"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_choose_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/half_size"
+                    android:text="@string/lantai_2"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                <TextView
+                    android:id="@+id/tv_choose_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/onehalf_size"
+                    android:text="@string/john_doe"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choose_place" />
+
+                <TextView
+                    android:id="@+id/tv_choose_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/half_size"
+                    android:text="@string/_420"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_huge"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_choose_name"
+                    app:layout_constraintStart_toStartOf="@+id/tv_choose_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choose_name" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_default_bottle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_size"
+                    app:layout_constraintTop_toBottomOf="@id/tv_choose_point" />
+
+                <ProgressBar
+                    android:id="@+id/pb_default_bottle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/textView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_choose_point" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_size"
+                    android:text="@string/my_bottle"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_default_bottle" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_my_bottle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/half_size"
+                    app:layout_constraintTop_toBottomOf="@id/textView6" />
+
+                <ProgressBar
+                    android:id="@+id/pb_my_bottle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/tv_choose_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView6" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="25dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/onehalf_size"
+                    android:contentDescription="@string/logo"
+                    android:src="@drawable/ic_water_glass"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_my_bottle" />
+
+                <TextView
+                    android:id="@+id/tv_choose_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/half_size"
+                    android:text="@string/_0_ml"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+                <TextView
+                    android:id="@+id/tv_choose_spend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_0"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_choose_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_choose_size" />
+
+                <Button
+                    android:id="@+id/btn_choose_fill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_size"
+                    android:background="@drawable/input_text_rounded_corner"
+                    android:backgroundTint="@color/colorPrimaryLight"
+                    android:text="@string/fill_my_bottle"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintTop_toBottomOf="@id/tv_choose_spend" />
+
+                <ProgressBar
+                    android:id="@+id/pb_fill_my_bottle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/btn_choose_fill"
+                    app:layout_constraintStart_toStartOf="@id/btn_choose_fill"
+                    app:layout_constraintTop_toTopOf="@+id/btn_choose_fill" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

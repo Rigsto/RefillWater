@@ -23,7 +23,7 @@ class GallonVolumePresenter(
                 GallonsResponse::class.java
             )
 
-            view.getGallons(data.data.toList())
+            view.getGallons(data.data)
         }
     }
 }

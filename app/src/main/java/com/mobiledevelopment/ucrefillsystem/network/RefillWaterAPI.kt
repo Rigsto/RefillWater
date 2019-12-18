@@ -20,6 +20,10 @@ object RefillWaterAPI {
         return "$address/register"
     }
 
+    fun logout(): String {
+        return "$address/logout"
+    }
+
     fun getProfile(): String {
         return "$address/profile"
     }
@@ -32,10 +36,17 @@ object RefillWaterAPI {
         return "$address/gallons"
     }
 
+    fun getBottle(): String {
+        return "$address/my-bottle"
+    }
+
+    fun refill(): String {
+        return "$address/refill"
+    }
+
     fun editProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{
         return address+""
     }
-
 
     fun historyTopUp (name:String?): String{
         return address+"my-topUp?name=$name"
