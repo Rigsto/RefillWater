@@ -44,15 +44,19 @@ object RefillWaterAPI {
         return "$address/refill"
     }
 
-    fun editProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{
-        return address+""
+    fun getHistory(): String {
+        return "$address/refill"
     }
 
-    fun historyTopUp (name:String?): String{
-        return address+"my-topUp?name=$name"
-    }
-
-    fun accessToken (): String{
-        return address+"test-token"
-    }
+//    fun editProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{
+//        return address+""
+//    }
+//
+//    fun historyTopUp (name:String?): String{
+//        return address+"my-topUp?name=$name"
+//    }
+//
+//    fun accessToken (): String{
+//        return address+"test-token"
+//    }
 }

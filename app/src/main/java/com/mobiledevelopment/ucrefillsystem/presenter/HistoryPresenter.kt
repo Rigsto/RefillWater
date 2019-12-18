@@ -1,18 +1,16 @@
 package com.mobiledevelopment.ucrefillsystem.presenter
 
-import android.util.Log
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.gson.Gson
+import com.google.gson.JsonElement
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
-import com.mobiledevelopment.ucrefillsystem.model.History
+import com.mobiledevelopment.ucrefillsystem.model.response.HistoryResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
 import com.mobiledevelopment.ucrefillsystem.viewinterface.HistoryView
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 class HistoryPresenter(
@@ -21,30 +19,31 @@ class HistoryPresenter(
     private val gson: Gson,
     private val context: CoroutineContextProvider = CoroutineContextProvider()
 ) {
-    fun history(name: String):String {
+
+    fun getHistory(accToken: String) {
         view.showLoading()
-        AndroidNetworking.get("https://refill.fusionsvisual.com/api/my-topUp")
-            .setPriority(Priority.LOW)
+
+        AndroidNetworking.get(RefillWaterAPI.getHistory())
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer $accToken")
+            .setPriority(Priority.MEDIUM)
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
-                override fun onResponse(response: JSONObject?) {
+                override fun onResponse(response: JSONObject) {
+                    val historyResponse = gson.fromJson(
+                        gson.fromJson(response.toString(), JsonElement::class.java),
+                        HistoryResponse::class.java
+                    )
+                    val data = historyResponse.data
 
-                    println(response)
-
-
-
-
+                    view.hideLoading()
+                    view.showHistoryList(data)
                 }
 
-                override fun onError(anError: ANError?) {
-                    view.hideLoading()
-                    println("error here")
-                    Log.d("ONERROR",anError?.errorDetail?.toString())
+                override fun onError(anError: ANError) {
 
                 }
             })
-            
-            view.hideLoading()
-        return "ok"
-        }
     }
+}
+

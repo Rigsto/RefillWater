@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobiledevelopment.ucrefillsystem.R
+import com.mobiledevelopment.ucrefillsystem.helper.getFloor
 import com.mobiledevelopment.ucrefillsystem.helper.gone
+import com.mobiledevelopment.ucrefillsystem.helper.readableNumber
 import com.mobiledevelopment.ucrefillsystem.model.History
 import kotlinx.android.synthetic.main.item_history.view.*
 
@@ -39,9 +41,9 @@ class HistoryAdapter(private val context: Context, private val historys: List<Hi
         private val card = view.cv_summary
 
         fun bindContent(history: History) {
-            place.text = history.place
+            place.text = "Lantai ${history.idGallon?.getFloor()}"
             amount.text = "${history.amount} ml"
-            price.text = history.price.toString()
+            price.text = history.price?.readableNumber()
             time.text = history.date
 
             if (type == 1) {

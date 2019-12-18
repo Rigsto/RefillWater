@@ -1,19 +1,23 @@
 package com.mobiledevelopment.ucrefillsystem.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class History (
     @SerializedName("id")
     var id: String? = null,
 
-    @SerializedName("price")
+    @SerializedName("cost")
     var price: Int? = 0,
 
-    @SerializedName("updated_at")
+    @SerializedName("transaction_date")
     var date: String? = null,
 
-    @SerializedName("nRefill")
+    @SerializedName("bottle_size")
     var amount: Int = 0,
 
-    var place: String? = null
-)
+    @SerializedName("gallon_id")
+    var idGallon: String? = null
+) : Parcelable

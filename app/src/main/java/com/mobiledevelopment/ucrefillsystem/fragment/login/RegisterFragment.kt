@@ -1,5 +1,6 @@
 package com.mobiledevelopment.ucrefillsystem.fragment.login
 
+//import com.mobiledevelopment.ucrefillsystem.presenter.PostPresenter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,23 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.mobiledevelopment.ucrefillsystem.R
-import com.mobiledevelopment.ucrefillsystem.helper.invisible
-import com.mobiledevelopment.ucrefillsystem.helper.visible
-//import com.mobiledevelopment.ucrefillsystem.presenter.PostPresenter
-import com.mobiledevelopment.ucrefillsystem.viewinterface.PostInterface
 import kotlinx.android.synthetic.main.fragment_register.*
 
-class RegisterFragment : Fragment(), View.OnClickListener, PostInterface {
-    override fun hideLoading() {
-        pb_login.invisible()
-        btn_sign_up.visible()
-    }
-
-    override fun showLoading() {
-        pb_login.visible()
-        btn_sign_up.invisible()
-    }
-
+class RegisterFragment : Fragment(), View.OnClickListener {
     //    private lateinit var presenter: PostPresenter
     override fun onCreateView(
         inflater: LayoutInflater,
