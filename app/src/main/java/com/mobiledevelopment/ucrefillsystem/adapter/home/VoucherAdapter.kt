@@ -8,12 +8,13 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mobiledevelopment.ucrefillsystem.R
+import com.mobiledevelopment.ucrefillsystem.model.Voucher
 import kotlinx.android.synthetic.main.item_voucher.view.*
 
 class VoucherAdapter(private val context: Context) :
     RecyclerView.Adapter<VoucherAdapter.ViewHolder>() {
-    var vouchers = mutableListOf<Any>()
-    fun addVoucher(list: List<Any>) {
+    var vouchers = mutableListOf<Voucher>()
+    fun addVoucher(list: List<Voucher>) {
         vouchers.clear()
         vouchers.addAll(list)
         notifyDataSetChanged()
@@ -30,7 +31,7 @@ class VoucherAdapter(private val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindContent(vouchers[position] as Int, position)
+        holder.bindContent(vouchers[position], position)
     }
 
     override fun getItemCount(): Int = vouchers.size
@@ -38,12 +39,8 @@ class VoucherAdapter(private val context: Context) :
     inner class ViewHolder(private var view: View) : RecyclerView.ViewHolder(view) {
         private val image = view.img_item_voucher
 
-        fun bindContent(link: String) {
-            Glide.with(context).load(link).into(image)
-        }
-
-        fun bindContent(voucher: Int, position: Int) {
-            Glide.with(context).load(voucher).into(image)
+        fun bindContent(voucher: Voucher, position: Int) {
+            Glide.with(context).load(voucher.url).into(image)
 
             if (position != vouchers.size - 1) {
                 val params = RelativeLayout.LayoutParams(900, 360)

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.helper.invisible
 import com.mobiledevelopment.ucrefillsystem.helper.visible
-import com.mobiledevelopment.ucrefillsystem.presenter.PostPresenter
+//import com.mobiledevelopment.ucrefillsystem.presenter.PostPresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.PostInterface
 import kotlinx.android.synthetic.main.fragment_register.*
 
@@ -24,7 +24,7 @@ class RegisterFragment : Fragment(), View.OnClickListener, PostInterface {
         btn_sign_up.invisible()
     }
 
-    private lateinit var presenter: PostPresenter
+    //    private lateinit var presenter: PostPresenter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,7 +36,7 @@ class RegisterFragment : Fragment(), View.OnClickListener, PostInterface {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = PostPresenter(this)
+//        presenter = PostPresenter(this)
 
         btn_sign_up.setOnClickListener(this)
         tv_register_to_login.setOnClickListener(this)
@@ -54,8 +54,9 @@ class RegisterFragment : Fragment(), View.OnClickListener, PostInterface {
             R.id.btn_sign_up->{
                 if (edt_register_password.text.toString() != edt_register_password2.text.toString()){
                     Toast.makeText(context, "Password Mismatch", Toast.LENGTH_LONG )
-                } else
-                presenter.registerUser(edt_register_email.text.toString(), edt_register_password.text.toString())
+                } else {
+//                presenter.registerUser(edt_register_email.text.toString(), edt_register_password.text.toString())
+                }
             }
         }
     }

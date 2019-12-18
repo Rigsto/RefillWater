@@ -9,8 +9,12 @@ data class Gallon(
     @SerializedName("id")
     var id: String? = null,
 
-    var place: String? = null,
-    var floor: Int? = null,
+    @SerializedName("default_ml")
+    var max: Int = 0,
+
+    @SerializedName("current_ml")
     var remain: Int = 0,
-    var remainPercentage: Double = 0.0
+
+    @SerializedName("description")
+    var desc: String? = null
 ) : Parcelable

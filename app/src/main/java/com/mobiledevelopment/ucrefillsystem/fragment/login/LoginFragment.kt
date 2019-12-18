@@ -12,7 +12,6 @@ import com.mobiledevelopment.ucrefillsystem.HomeActivity
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.model.User
-import com.mobiledevelopment.ucrefillsystem.model.response.LoginResponse
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.LoginPresenter
 import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
@@ -20,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment(), View.OnClickListener, LoginView {
     private lateinit var presenter: LoginPresenter
-    private var auto: Int = 0
     private lateinit var email: String
     private lateinit var password: String
 
@@ -62,7 +60,6 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
             }
         }
     }
@@ -79,12 +76,14 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
 
     private fun tryAutoLogin() {
         val sp = context?.sharePref()
-        if (sp?.getString(SharedPreferenceKey.API_KEY, "") != "") {
-            val email = sp?.getString(SharedPreferenceKey.EMAIL_KEY, "")
-            val password = sp?.getString(SharedPreferenceKey.PASSWORD_KEY, "")
-
-            auto = 1
-            presenter.login(email!!, password!!)
+        if (sp?.getString(SharedPreferenceKey.ACCESS_TOKEN, "") != "") {
+            if (sp?.getString(SharedPreferenceKey.NAME_KEY, "") != "") {
+                startActivity(Intent(context, HomeActivity::class.java))
+                activity?.finish()
+            } else {
+                showLoading()
+                presenter.getProfile(sp.getString(SharedPreferenceKey.ACCESS_TOKEN, "")!!)
+            }
         }
     }
 
@@ -98,27 +97,31 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
         btn_login.visible()
     }
 
-    override fun loginSuccess(name : String?, balance : String?) {
+    override fun loginSuccess(accToken: String, refToken: String) {
         val sp = context?.sharePref()
 
-        if (auto == 0) {
-            sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY,name)
-                ?.putString(SharedPreferenceKey.EMAIL_KEY, email)
-                ?.putString(SharedPreferenceKey.PASSWORD_KEY, password)
-                ?.putString(SharedPreferenceKey.API_KEY,balance)?.apply()
-        }
+        sp?.edit()?.putString(SharedPreferenceKey.ACCESS_TOKEN, accToken)
+            ?.putString(SharedPreferenceKey.REFRESH_TOKEN, refToken)
+            ?.apply()
 
-        sp?.edit()?.putInt(SharedPreferenceKey.MONEY_KEY, 200!!)?.apply()
+        presenter.getProfile(accToken)
+    }
+
+    override fun loginFailed(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun loadProfile(user: User) {
+        val sp = context?.sharePref()
+
+        sp?.edit()?.putString(SharedPreferenceKey.NAME_KEY, user.name)
+            ?.putString(SharedPreferenceKey.EMAIL_KEY, user.email)
+            ?.putString(SharedPreferenceKey.GENDER_KEY, user.gender)
+            ?.putString(SharedPreferenceKey.MAJOR_KEY, user.majors)
+            ?.putInt(SharedPreferenceKey.MONEY_KEY, user.balance!!.toInt())
+            ?.apply()
 
         startActivity(Intent(context, HomeActivity::class.java))
         activity?.finish()
-    }
-
-    override fun loginFailed(message : String) {
-        val sp = context?.sharePref()
-        sp?.edit()?.clear()?.apply()
-
-        auto = 0
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

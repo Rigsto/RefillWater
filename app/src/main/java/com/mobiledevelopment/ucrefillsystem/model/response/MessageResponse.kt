@@ -2,9 +2,7 @@ package com.mobiledevelopment.ucrefillsystem.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse (
+data class MessageResponse(
     @SerializedName("message")
-    var message: String? = null
-
-
+    val message: String? = null
 )

@@ -9,8 +9,4 @@ class ApiRepository {
     fun doRequest(url: String): Deferred<String> = GlobalScope.async {
         URL(url).readText()
     }
-
-//    fun doRequest(url: String, params: Map<String, String>): Deferred<String> = GlobalScope.async {
-//
-//    }
 }

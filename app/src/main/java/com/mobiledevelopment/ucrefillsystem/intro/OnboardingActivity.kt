@@ -9,6 +9,8 @@ import com.bumptech.glide.Glide
 import com.mobiledevelopment.ucrefillsystem.LoginActivity
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.adapter.onboarding.OnboardingAdapter
+import com.mobiledevelopment.ucrefillsystem.helper.SharedPreferenceKey
+import com.mobiledevelopment.ucrefillsystem.helper.sharePref
 import kotlinx.android.synthetic.main.activity_onboarding.*
 
 class OnboardingActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
@@ -27,6 +29,8 @@ class OnboardingActivity : AppCompatActivity(), ViewPager.OnPageChangeListener,
         vp_onboarding.addOnPageChangeListener(this)
 
         btn_onboarding_getstarted.setOnClickListener(this)
+
+        sharePref().edit().putBoolean(SharedPreferenceKey.ONBOARDING, true).apply()
     }
 
     override fun onClick(v: View) {

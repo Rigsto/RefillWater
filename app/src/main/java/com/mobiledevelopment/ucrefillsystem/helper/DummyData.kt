@@ -2,18 +2,7 @@ package com.mobiledevelopment.ucrefillsystem.helper
 
 import android.content.Context
 import com.mobiledevelopment.ucrefillsystem.R
-import com.mobiledevelopment.ucrefillsystem.model.Gallon
 import com.mobiledevelopment.ucrefillsystem.model.History
-
-fun Context.getDummyGallonData(): List<Gallon> {
-    val gallons = mutableListOf<Gallon>()
-    gallons.add(Gallon("1", "Lantai 1", 1, 3000, 15.0))
-    gallons.add(Gallon("2", "Lantai 2", 2, 6000, 20.0))
-    gallons.add(Gallon("3", "Lantai 3", 3, 20000, 100.0))
-    gallons.add(Gallon("4", "Lantai 13", 13, 10000, 50.0))
-    gallons.add(Gallon("5", "BMA", 2, 1000, 5.0))
-    return gallons
-}
 
 fun Context.getDummyHistoryData(): List<History> {
     val historys = mutableListOf<History>()

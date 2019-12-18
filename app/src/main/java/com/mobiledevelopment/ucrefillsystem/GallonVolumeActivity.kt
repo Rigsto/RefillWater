@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobiledevelopment.ucrefillsystem.adapter.gallon_volume.GallonVolumeAdapter
-import com.mobiledevelopment.ucrefillsystem.helper.getDummyGallonData
 import kotlinx.android.synthetic.main.activity_gallon_volume.*
 
 class GallonVolumeActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class GallonVolumeActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        gallonVolumeAdapter = GallonVolumeAdapter(this, getDummyGallonData())
+        gallonVolumeAdapter = GallonVolumeAdapter(this, mutableListOf())
         rv_gallon_volume.adapter = gallonVolumeAdapter
         rv_gallon_volume.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

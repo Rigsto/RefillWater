@@ -6,16 +6,30 @@ object RefillWaterAPI {
     private const val address = BuildConfig.BASE_URL
 
     fun login():String{
-        return "https://refill.test/api/login"
-        //address +"login?email=$name&password=$password"
+        return "$address/login"
     }
 
-    fun register():String{
-        return address
+    fun register(
+        name: String,
+        email: String,
+        pass1: String,
+        pass2: String,
+        gender: String,
+        majors: String
+    ): String {
+        return "$address/register"
     }
 
-    fun getProfile(email:String?):String{
-        return address+"profile"
+    fun getProfile(): String {
+        return "$address/profile"
+    }
+
+    fun getAds(): String {
+        return "$address/ads"
+    }
+
+    fun getGallon(): String {
+        return "$address/gallons"
     }
 
     fun editProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{

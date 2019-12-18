@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mobiledevelopment.ucrefillsystem.R
+import com.mobiledevelopment.ucrefillsystem.helper.getFloor
+import com.mobiledevelopment.ucrefillsystem.helper.getRemainPercentage
 import com.mobiledevelopment.ucrefillsystem.model.Gallon
 import kotlinx.android.synthetic.main.item_gallon_volume.view.*
 
@@ -37,12 +39,11 @@ class GallonVolumeAdapter(private val context: Context, private val gallons: Lis
         private val remain = view.tv_gallon_remain
 
         fun bindContent(gallon: Gallon) {
-//            floor.text = "Lantai ${gallon.floor}"
-            floor.text = gallon.place
-            pbremain.progress = gallon.remainPercentage.toInt()
+            floor.text = "Lantai ${gallon.id?.getFloor()}"
+            pbremain.progress = context.getRemainPercentage(gallon.remain, gallon.max)
             remain.text = "${gallon.remain} ml"
 
-            if (gallon.remainPercentage < 25.0)
+            if (context.getRemainPercentage(gallon.remain.toDouble(), gallon.max.toDouble()) < 25.0)
                 pbremain.progressDrawable =
                     ContextCompat.getDrawable(context, R.drawable.progressbar_red)
         }

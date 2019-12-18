@@ -5,12 +5,16 @@ object SharedPreferenceKey {
 
     var ONBOARDING = "onboarding"
 
-    var API_KEY = "API"
     var NAME_KEY = "FULL_NAME"
     var EMAIL_KEY = "EMAIL"
-    var PASSWORD_KEY = "PASS"
+    var GENDER_KEY = "GENDER"
+    var MAJOR_KEY = "MAJORS"
     var MONEY_KEY = "MONEY"
+
     var LANG_KEY = "LANG"
+
+    var ACCESS_TOKEN = "access_token"
+    var REFRESH_TOKEN = "refresh_token"
 
     var notification = "notif"
 }
