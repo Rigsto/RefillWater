@@ -40,4 +40,58 @@ class MessagePresenter(
                 }
             })
     }
+
+    fun editProfile(
+        accToken: String,
+        name: String,
+        password: String,
+        gender: String,
+        majors: String
+    ) {
+        view.showMessageLoading()
+
+        AndroidNetworking.post(RefillWaterAPI.editProfile())
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer $accToken")
+            .addBodyParameter("name", name)
+            .addBodyParameter("password", password)
+            .addBodyParameter("password_confirmation", password)
+            .addBodyParameter("gender", gender)
+            .addBodyParameter("majors", majors)
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject) {
+                    val message = response.getString("message")
+                    view.getMessage(message)
+                }
+
+                override fun onError(anError: ANError) {
+
+                }
+            })
+    }
+
+    fun changePassword(accToken: String, email: String, password: String) {
+        view.showMessageLoading()
+
+        AndroidNetworking.post(RefillWaterAPI.newPassword())
+            .addHeaders("Accept", "application/json")
+            .addHeaders("Authorization", "Bearer $accToken")
+            .addBodyParameter("email", email)
+            .addBodyParameter("password", password)
+            .addBodyParameter("password_confirmation", password)
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener {
+                override fun onResponse(response: JSONObject) {
+                    val message = response.getString("message")
+                    view.getMessage(message)
+                }
+
+                override fun onError(anError: ANError?) {
+
+                }
+            })
+    }
 }

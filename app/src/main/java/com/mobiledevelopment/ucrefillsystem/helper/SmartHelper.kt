@@ -19,7 +19,7 @@ fun String.md5(): String {
 
 fun String.getFloor(): Int {
     val floor = "${this[1]}${this[2]}"
-    return floor.toInt()
+    return floor.toIntOrNull() ?: 0
 }
 
 fun Context.getRemainPercentage(remain: Int, max: Int): Int {
@@ -57,11 +57,11 @@ fun String.checkGallonId(): Boolean {
 
     val floor = ("${id[1]}${id[2]}")
     try {
-        val floorInt = floor.toInt()
+        val floorInt = floor.toIntOrNull() ?: 0
         if (floorInt in 1..13) {
             val code = ("${id[3]}${id[4]}")
             try {
-                val codeInt = code.toInt()
+                val codeInt = code.toIntOrNull() ?: 0
                 if (codeInt in 1..99) {
                     return true
                 }

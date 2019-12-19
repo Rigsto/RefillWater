@@ -48,6 +48,14 @@ object RefillWaterAPI {
         return "$address/refill"
     }
 
+    fun editProfile(): String {
+        return "$address/edit-profile"
+    }
+
+    fun newPassword(): String {
+        return "$address/new-password"
+    }
+
 //    fun editProfile(name : String?, gender: String?, majors:String?, password1:String?, password2: String):String{
 //        return address+""
 //    }

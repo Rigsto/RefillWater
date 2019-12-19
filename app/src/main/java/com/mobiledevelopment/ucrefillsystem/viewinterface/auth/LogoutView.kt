@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.viewinterface
+package com.mobiledevelopment.ucrefillsystem.viewinterface.auth
 
 interface LogoutView {
     fun showLoading()

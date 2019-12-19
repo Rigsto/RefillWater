@@ -19,5 +19,5 @@ data class User (
     var majors: String? = null,
 
     @SerializedName ("balance")
-    var balance: String? = null
+    var balance: Int = 0
 ) : Parcelable

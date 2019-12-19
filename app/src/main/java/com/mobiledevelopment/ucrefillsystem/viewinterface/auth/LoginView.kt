@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.viewinterface
+package com.mobiledevelopment.ucrefillsystem.viewinterface.auth
 
 import com.mobiledevelopment.ucrefillsystem.model.User
 

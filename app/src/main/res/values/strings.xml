@@ -93,4 +93,20 @@
     <string name="you_have_paid">You have paid</string>
     <string name="rp_10_000">Rp. 10.000</string>
     <string name="enjoy_your_drink">Enjoy your drink!</string>
+    <string name="email">Email</string>
+
+    <string-array name="majors_array">
+        <item>ACC</item>
+        <item>CB</item>
+        <item>COM</item>
+        <item>HTB</item>
+        <item>IBM-IC</item>
+        <item>IBM-RC</item>
+        <item>IMT</item>
+        <item>INA</item>
+        <item>ISB</item>
+        <item>MED</item>
+        <item>PSY</item>
+        <item>VCD</item>
+    </string-array>
 </resources>

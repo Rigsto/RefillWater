@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/input_text_rounded_corner"
             android:backgroundTint="@color/colorPrimaryLighter"
-            android:hint="@string/email_student"
+            android:hint="@string/email"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:padding="20dp"

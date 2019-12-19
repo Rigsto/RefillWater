@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.presenter
+package com.mobiledevelopment.ucrefillsystem.presenter.auth
 
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
@@ -10,7 +10,7 @@ import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
 import com.mobiledevelopment.ucrefillsystem.model.User
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
-import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
+import com.mobiledevelopment.ucrefillsystem.viewinterface.auth.LoginView
 import org.json.JSONException
 import org.json.JSONObject
 

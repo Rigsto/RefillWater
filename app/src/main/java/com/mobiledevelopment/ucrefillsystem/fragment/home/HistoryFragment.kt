@@ -11,7 +11,9 @@ import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.adapter.history.HistoryAdapter
 import com.mobiledevelopment.ucrefillsystem.helper.SharedPreferenceKey
+import com.mobiledevelopment.ucrefillsystem.helper.invisible
 import com.mobiledevelopment.ucrefillsystem.helper.sharePref
+import com.mobiledevelopment.ucrefillsystem.helper.visible
 import com.mobiledevelopment.ucrefillsystem.model.History
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.presenter.HistoryPresenter
@@ -42,15 +44,16 @@ class HistoryFragment : Fragment(), HistoryView{
                 ""
             )!!
         )
-
     }
 
     override fun showLoading() {
-
+        pb_history.visible()
+        rv_history.invisible()
     }
 
     override fun hideLoading() {
-
+        pb_history.invisible()
+        rv_history.visible()
     }
 
     override fun showHistoryList(list: List<History>) {

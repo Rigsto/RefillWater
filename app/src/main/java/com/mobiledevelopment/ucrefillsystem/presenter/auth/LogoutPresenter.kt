@@ -1,4 +1,4 @@
-package com.mobiledevelopment.ucrefillsystem.presenter
+package com.mobiledevelopment.ucrefillsystem.presenter.auth
 
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.common.Priority
@@ -8,7 +8,7 @@ import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.helper.CoroutineContextProvider
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
 import com.mobiledevelopment.ucrefillsystem.network.RefillWaterAPI
-import com.mobiledevelopment.ucrefillsystem.viewinterface.LogoutView
+import com.mobiledevelopment.ucrefillsystem.viewinterface.auth.LogoutView
 import org.json.JSONObject
 
 class LogoutPresenter(

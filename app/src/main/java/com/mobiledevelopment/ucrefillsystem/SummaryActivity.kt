@@ -4,12 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.mobiledevelopment.ucrefillsystem.adapter.history.HistoryAdapter
-import com.mobiledevelopment.ucrefillsystem.helper.getDummyHistoryData
+import com.mobiledevelopment.ucrefillsystem.helper.SharedPreferenceKey
+import com.mobiledevelopment.ucrefillsystem.helper.sharePref
+import com.mobiledevelopment.ucrefillsystem.model.History
+import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
+import com.mobiledevelopment.ucrefillsystem.presenter.HistoryPresenter
+import com.mobiledevelopment.ucrefillsystem.viewinterface.HistoryView
 import kotlinx.android.synthetic.main.activity_summary.*
 
-class SummaryActivity : AppCompatActivity() {
+class SummaryActivity : AppCompatActivity(), HistoryView {
     private lateinit var historyAdapter: HistoryAdapter
+    private lateinit var historyPresenter: HistoryPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,14 +27,8 @@ class SummaryActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        historyAdapter = HistoryAdapter(this, getDummyHistoryData())
-        historyAdapter.count = 2
-        historyAdapter.type = 1
-
-        rv_summary_short.adapter = historyAdapter
-        rv_summary_short.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rv_summary_short.setHasFixedSize(true)
+        historyPresenter = HistoryPresenter(this, ApiRepository(), Gson())
+        historyPresenter.getHistory(sharePref().getString(SharedPreferenceKey.ACCESS_TOKEN, "")!!)
 
         tv_summary_seeall.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java).putExtra("goto", "history"))
@@ -38,5 +39,24 @@ class SummaryActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
+    }
+
+    override fun showLoading() {
+
+    }
+
+    override fun hideLoading() {
+
+    }
+
+    override fun showHistoryList(list: List<History>) {
+        historyAdapter = HistoryAdapter(this, list)
+        historyAdapter.count = 2
+        historyAdapter.type = 1
+
+        rv_summary_short.adapter = historyAdapter
+        rv_summary_short.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_summary_short.setHasFixedSize(true)
     }
 }

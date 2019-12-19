@@ -14,14 +14,15 @@ import com.mobiledevelopment.ucrefillsystem.LoginActivity
 import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
-import com.mobiledevelopment.ucrefillsystem.presenter.LogoutPresenter
-import com.mobiledevelopment.ucrefillsystem.viewinterface.LogoutView
+import com.mobiledevelopment.ucrefillsystem.presenter.auth.LogoutPresenter
+import com.mobiledevelopment.ucrefillsystem.viewinterface.auth.LogoutView
 import kotlinx.android.synthetic.main.fragment_account.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class AccountFragment : Fragment(), View.OnClickListener, LogoutView {
+class AccountFragment : Fragment(), View.OnClickListener,
+    LogoutView {
     private lateinit var logoutPresenter: LogoutPresenter
 
     override fun onCreateView(
@@ -41,7 +42,12 @@ class AccountFragment : Fragment(), View.OnClickListener, LogoutView {
         ll_account_about.setOnClickListener(this)
         ll_account_logout.setOnClickListener(this)
 
-        logoutPresenter = LogoutPresenter(this, ApiRepository(), Gson())
+        logoutPresenter =
+            LogoutPresenter(
+                this,
+                ApiRepository(),
+                Gson()
+            )
 
         sw_notifications.setOnCheckedChangeListener { _, isChecked ->
             context!!.sharePref().edit().putBoolean(SharedPreferenceKey.notification, isChecked)

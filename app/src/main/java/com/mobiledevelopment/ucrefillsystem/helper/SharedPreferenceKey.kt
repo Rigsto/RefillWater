@@ -6,6 +6,7 @@ object SharedPreferenceKey {
     var ONBOARDING = "onboarding"
 
     var NAME_KEY = "FULL_NAME"
+    var PASSWORD_KEY = "PASSWORD"
     var EMAIL_KEY = "EMAIL"
     var GENDER_KEY = "GENDER"
     var MAJOR_KEY = "MAJORS"

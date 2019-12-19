@@ -13,11 +13,12 @@ import com.mobiledevelopment.ucrefillsystem.R
 import com.mobiledevelopment.ucrefillsystem.helper.*
 import com.mobiledevelopment.ucrefillsystem.model.User
 import com.mobiledevelopment.ucrefillsystem.network.ApiRepository
-import com.mobiledevelopment.ucrefillsystem.presenter.LoginPresenter
-import com.mobiledevelopment.ucrefillsystem.viewinterface.LoginView
+import com.mobiledevelopment.ucrefillsystem.presenter.auth.LoginPresenter
+import com.mobiledevelopment.ucrefillsystem.viewinterface.auth.LoginView
 import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginFragment : Fragment(), View.OnClickListener, LoginView {
+class LoginFragment : Fragment(), View.OnClickListener,
+    LoginView {
     private lateinit var presenter: LoginPresenter
     private lateinit var email: String
     private lateinit var password: String
@@ -33,7 +34,12 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = LoginPresenter(this, ApiRepository(), Gson())
+        presenter =
+            LoginPresenter(
+                this,
+                ApiRepository(),
+                Gson()
+            )
         tryAutoLogin()
 
         tv_login_to_register.setOnClickListener(this)
@@ -118,7 +124,8 @@ class LoginFragment : Fragment(), View.OnClickListener, LoginView {
             ?.putString(SharedPreferenceKey.EMAIL_KEY, user.email)
             ?.putString(SharedPreferenceKey.GENDER_KEY, user.gender)
             ?.putString(SharedPreferenceKey.MAJOR_KEY, user.majors)
-            ?.putInt(SharedPreferenceKey.MONEY_KEY, user.balance!!.toInt())
+            ?.putInt(SharedPreferenceKey.MONEY_KEY, user.balance)
+            ?.putString(SharedPreferenceKey.PASSWORD_KEY, edt_login_password.text.toString())
             ?.apply()
 
         startActivity(Intent(context, HomeActivity::class.java))

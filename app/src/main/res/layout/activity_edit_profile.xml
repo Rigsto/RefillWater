@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -87,12 +85,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/email_student"
+            android:hint="@string/email"
             android:backgroundTint="@color/colorPrimaryLight"
             android:text="@string/johndoe_student_ciputra_ac_id"
             android:importantForAutofill="no"
-            android:inputType="textEmailAddress" />
+            android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:paddingStart="@dimen/double_size"-->
+    <!--        android:paddingEnd="@dimen/double_size"-->
+    <!--        android:paddingTop="@dimen/default_size"-->
+    <!--        android:paddingBottom="@dimen/default_size">-->
+
+    <!--        <Spinner-->
+    <!--            android:id="@+id/spinner_major"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:backgroundTint="@color/colorPrimaryLight" />-->
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <TextView
         android:id="@+id/tv_eprofile_change_password"
@@ -103,6 +116,13 @@
         android:paddingEnd="@dimen/double_size"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_medium" />
+
+    <ProgressBar
+        android:id="@+id/pb_eprofile_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_size"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btn_eprofile_save"
